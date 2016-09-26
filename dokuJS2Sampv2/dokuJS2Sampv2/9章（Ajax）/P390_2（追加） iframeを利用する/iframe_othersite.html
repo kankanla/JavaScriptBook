@@ -1,0 +1,13 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div id="output"></div>
+<script>
+    var arg = JSON.parse(location.hash.substring(1)); // 先頭の"#"を外して残りをparseする
+    document.getElementById("output").innerText = "幅：" + arg.width + " 高さ：" + arg.height
+</script>
+</body>
+</html>

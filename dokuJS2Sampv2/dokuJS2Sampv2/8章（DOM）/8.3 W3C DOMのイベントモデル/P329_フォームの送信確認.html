@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>フォームの送信確認</title>
+</head>
+<body>
+<h1>W3C DOMのイベントモデルよるフォームの送信確認</h1>
+<p>
+  送信ボタンをクリックすると確認ダイアログが表示されます。
+</p>
+<form id="form">
+  <input type="submit" value="送信">
+</form>
+
+<script>
+var form = document.getElementById('form');
+
+form.addEventListener('submit', function(event){
+  if(!confirm('送信してよろしいですか？')){
+    event.preventDefault();
+  }
+}, false);
+</script>
+
+</body>
+</html>

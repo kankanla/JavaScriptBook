@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+var check = 'aaaabbbbA025cccc';
+var reg = new RegExp('[0-9]{2}'); // 数値2桁を探す
+if (reg.test(check)) {
+	alert(check + 'には数値2桁が含まれています');
+} else {
+	alert(check + 'には数値2桁が含まれていません');
+}
+</script>
+</body>
+</html>

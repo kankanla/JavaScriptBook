@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>onblurイベントによるテキストフィールドの入力補完</title>
+</head>
+<body>
+<form>
+  <input type="text" id="code" onblur="zeroFill(this)">
+</form>
+
+<script>
+function zeroFill(element){
+  var value = element.value;
+  // 8桁になるまで先頭に0を追加
+  while(value.length < 8){
+    value = '0' + value;
+  }
+  element.value = value;
+}
+</script>
+</body>
+</html>

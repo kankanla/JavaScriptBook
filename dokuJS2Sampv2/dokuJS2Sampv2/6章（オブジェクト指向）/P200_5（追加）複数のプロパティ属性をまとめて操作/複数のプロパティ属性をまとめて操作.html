@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+var obj = {x:10,y:20}; // "x"と"y"の2つのプロパティを持つオブジェクトを生成
+document.write("(1)value(x) : " + obj.x + "<br/>"); // "10"
+document.write("(1)value(y) : " + obj.y + "<br/>"); // "20"
+document.write("(1)value(z) : " + obj.z + "<br/>"); // "undefined"
+// Object.defineProperties()で既存のプロパティ属性変更に加えて、新規プロパティ"z"を追加
+var desc = Object.defineProperties(obj, {
+                     x : {value:15, writable : false},
+                     y : {value:25, enumerable : false},
+                     z : {value:"abc", writable : false}});
+document.write("(2)value(x) : " + obj.x + "<br/>"); // "15" : writable=falseだがdefinePropertiesでなら値は変更可
+document.write("(2)value(y) : " + obj.y + "<br/>"); // "25"
+document.write("(2)value(z) : " + obj.z + "<br/>"); // "abc" : definePropertiesでも新しい属性が追加可能
+obj.x = 11;
+obj.y = 21;
+obj.z = "def";
+document.write("(3)value(x) : " + obj.x + "<br/>"); // "15" : writable="false"なので代入はできない
+document.write("(3)value(y) : " + obj.y + "<br/>"); // "21"
+document.write("(3)value(z) : " + obj.z + "<br/>"); // "abc" : writable="false"なので代入はできない
+</script>
+</body>
+</html>

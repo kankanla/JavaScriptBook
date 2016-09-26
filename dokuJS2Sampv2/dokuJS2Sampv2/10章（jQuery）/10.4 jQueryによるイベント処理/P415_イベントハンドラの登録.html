@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>イベントハンドラの登録</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<form>
+  <input type="submit" id="confirm" value="送信"/>
+</form>
+<script>
+$(function(){
+  // id属性が"confirm"の要素（送信ボタン）クリック時のイベントハンドラを登録
+  $('#confirm').click(function(){
+    return confirm('送信します。よろしいですか？');
+  });
+});
+</script>
+</body>
+</html>

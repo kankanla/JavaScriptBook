@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+var ary1 = new Array('aa', 'bb', 'cc');
+// push()で配列の末尾に要素を追加
+ary1.push('dd'); // 配列の末尾に'dd'を追加
+document.write(ary1 + '<br>'); // 'aa,bb,cc,dd'になる
+// shift()で配列の先頭から要素を取得
+var shift1 = ary1.shift(); // 'aa'が取り出される
+document.write(shift1 + '<br>');
+var shift2 = ary1.shift(); // 'bb'が取り出される
+document.write(shift2 + '<br>');
+// unshift()で配列の先頭に要素を追加
+ary1.unshift('ee'); // 配列の先頭に'ee'を追加
+document.write(ary1 + '<br>'); // 'ee,cc,dd'になる
+</script>
+</body>
+</html>

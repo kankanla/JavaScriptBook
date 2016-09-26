@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>prompt()メソッドで入力ダイアログを表示</title>
+</head>
+<body>
+  <script>
+  function inputYourName(){
+    var name = prompt('お名前をどうぞ', '');
+    if(name != null){
+      alert('こんにちは、' + name + 'さん！');
+    }
+  }
+  </script>
+  <input type="button" value="クリック" onclick="inputYourName()"/>
+</body>
+</html>

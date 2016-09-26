@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+<script>
+var socket = new WebSocket("ws://localhost:1337/");
+function sendMessage() {
+  socket.send(new Date().toLocaleString());
+}
+</script>
+</head>
+<body>
+<form>
+<input type="button" value="メッセージを送信" onclick="sendMessage();" />
+</form>
+</body>
+</html>

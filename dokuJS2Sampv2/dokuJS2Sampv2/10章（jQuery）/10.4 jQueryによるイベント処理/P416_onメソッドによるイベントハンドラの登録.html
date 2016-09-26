@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>on()メソッドによるイベントハンドラの登録</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<form>
+  <fieldset>
+    <legend>on()メソッドによるイベントハンドラの登録</legend>
+    <input type="submit" id="confirm" value="送信"/>
+    <a href="#" id="remove1">イベントハンドラを削除</a>
+  </fieldset>
+  <fieldset>
+    <legend>複数のイベントにイベントハンドラを登録</legend>
+    <p>
+      click、keyupイベントが発生するとコンソールにメッセージを出力します。
+    </p>
+    <input type="text" id="text"/>
+    <a href="#" id="remove2">clickイベントのイベントハンドラを削除</a>
+  </fieldset>
+  <fieldset>
+    <legend>CSSセレクタを指定してイベントハンドラを登録</legend>
+    <p>
+      あとから追加されたボタンにも自動的にイベントハンドラが設定されます。
+    </p>
+    <a href="#" id="add_button">ボタンを追加</a>
+    <a href="#" id="remove3">イベントハンドラを削除</a>
+  </fieldset>
+</form>
+<script>
+$(function(){
+  // on()メソッドでクリック時のイベントハンドラを登録
+  $('#confirm').on('click', function(){
+    return confirm('送信します。よろしいですか？');
+  });
+  
+  // input要素のclickイベントとkeyupイベントにイベントハンドラを登録
+  $('#text').on('click keyup', function(){
+    console.log('fired.');
+  });
+  
+  $(document).on('click', 'input[type=button]', function(){
+    return confirm('クリック！');
+  });
+  
+  $('#add_button').click(function(){
+    $(this).parent().append('<input type="button" value="ボタン"/>');
+    return false;
+  });
+  
+  $('#remove1').click(function(){
+    $('#confirm').off();
+    return false;
+  });
+  
+  $('#remove2').click(function(){
+    // clickイベントのみ削除
+    $('#text').off('click');
+    return false;
+  });
+  
+  $('#remove3').click(function(){
+    // clickイベントのみ削除
+    $(document).off('click', 'input[type=button]');
+    return false;
+  });
+});
+</script>
+</body>
+</html>

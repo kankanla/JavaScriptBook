@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>テキストフィールドの値を取得</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+お名前をどうぞ：
+<input id="name" name="name" type="text"/>
+<input id="button" type="button" value="クリック"/>
+<script>
+$(function(){
+  $('#button').click(function(){
+  	// テキストフィールドの入力値を取得
+    var name = $('#name').val();
+    if(name == ''){
+      alert('お名前を入力してください。');
+    } else {
+      alert('こんにちは、' + name + 'さん！');
+    }
+  });
+});
+</script>
+</body>
+</html>

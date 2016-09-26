@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>セレクタの基本的な指定方法</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<h1>セレクタの基本的な指定方法</h1>
+
+<ul>
+  <li><span class="error">エラーメッセージ1</span></li>
+  <li><span class="error">エラーメッセージ2</span></li>
+</ul>
+
+<div class="title">class属性がtitleのdiv要素</div>
+
+<ul id="menu">
+  <li class="menu-item">Menu Item1</li>
+  <li class="menu-item">Menu Item2</li>
+  <li class="menu-item">Menu Item3</li>
+  <li class="menu-item">Menu Item4</li>
+</ul>
+
+<form name="login" action="/login">
+</form>
+
+<form name="logout" action="/logout">
+</form>
+
+<script>
+$(function(){
+  ////////////////////////////////////////////////////
+  // 基本的なセレクタ指定
+  ////////////////////////////////////////////////////
+
+  // すべてのh1要素
+  console.log('-- すべてのh1要素 --');
+  console.log($('h1').text());
+  
+  // class属性がerrorであるすべての要素
+  console.log('-- class属性がerrorであるすべての要素 --');
+  $('.error').each(function(i, e){
+    console.log($(e).text());
+  });
+  
+  // class属性がtitleのdiv要素
+  console.log('-- class属性がtitleのdiv要素 --');
+  console.log($('div.title').text());
+  
+  // id属性がmenuの要素
+  console.log('-- id属性がmenuの要素 --');
+  console.log($('#menu').html());
+  
+  ////////////////////////////////////////////////////
+  // 属性セレクタ
+  ////////////////////////////////////////////////////
+  
+  // name属性を持つform要素
+  console.log('-- name属性を持つform要素 --');
+  $('form[name]').each(function(i, e){
+    console.log($(e).attr('name'));
+  });
+  
+  // name属性の値がloginのform要素
+  console.log('-- name属性の値がloginのform要素 --');
+  console.log($('form[name=login]').attr('action'));
+  
+  // name属性の値がloginではないform要素
+  console.log('-- name属性の値がloginではないform要素 --');
+  console.log($('form[name!=login]').attr('action'));
+  
+  // name属性の値がloginから始まるform要素（前方一致）
+  console.log('-- name属性の値がloginから始まるform要素（前方一致） --');
+  console.log($('form[name^=login]').attr('action'));
+
+  // name属性の値にloginを含むform要素（部分一致）
+  console.log('-- name属性の値にloginを含むform要素（部分一致） --');
+  console.log($('form[name*=login]').attr('action'));
+  
+  // name属性の値がloginで終わるform要素（後方一致）
+  console.log('-- name属性の値がloginで終わるform要素（後方一致） --');
+  console.log($('form[name$=login]').attr('action'));
+  
+  ////////////////////////////////////////////////////
+  // 疑似クラス
+  ////////////////////////////////////////////////////
+  
+  // class属性がmenu-itemのli要素のうち最初のもの
+  console.log('-- class属性がmenu-itemのli要素のうち最初のもの --');
+  console.log($('li.menu-item:first').text());
+  
+  // class属性がmenu-itemのli要素のうち3番目のもの
+  console.log('-- class属性がmenu-itemのli要素のうち3番目のもの --');
+  console.log($('li.menu-item:eq(2)').text());
+  
+  // class属性がmenu-itemのli要素のうち奇数番目のもの
+  console.log('-- class属性がmenu-itemのli要素のうち奇数番目のもの --');
+  $('li.menu-item:odd').each(function(i, e){
+    console.log($(e).text());
+  });
+});
+</script>
+</body>
+</html>

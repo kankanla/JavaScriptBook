@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>セキュリティエラーが発生するコードの例</title>
+</head>
+<body>
+  <!-- 別ドメインのドキュメントをインラインフレームに表示-->
+  <iframe name="inlineFrame" src="http://www.yahoo.co.jp/"></iframe>
+  <!-- フレーム内のドキュメントのタイトルを表示-->
+  <input type="button" value="クリック"
+    onclick="alert(frames['inlineFrame'].document.title)">
+</body>
+</html>

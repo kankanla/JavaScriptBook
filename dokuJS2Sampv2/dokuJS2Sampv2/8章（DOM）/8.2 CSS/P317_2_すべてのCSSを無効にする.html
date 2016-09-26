@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>すべてのCSSを無効にする</title>
+  <style type="text/css">
+  strong {
+    color: blue;
+  }
+  
+  input {
+    border: 1px solid black;
+  }
+  </style>
+</head>
+<body>
+
+<p>
+  <strong>ボタンを押すとCSSが無効になります</strong>
+</p>
+
+<input type="button" value="すべてのCSSを無効にする" onclick="disableAllCSS()">
+
+<script>
+function disableAllCSS(){
+  for(var i=0;i<document.styleSheets.length;i++){
+    document.styleSheets[i].disabled = true;
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<script>
+    function doPostMessage() {
+        frames[0].postMessage('{"width":"200", "height":"120"}', 'http://127.0.0.1:1337'); // メッセージを送信
+    }
+</script>
+</head>
+<body>
+    <iframe id="x-domain-site" src="http://127.0.0.1:1337/postMessage_othersite.html" style="height:50px"></iframe>
+    <input type="button" onclick="doPostMessage();" value="メッセージを送る"/>
+</body>
+</html>

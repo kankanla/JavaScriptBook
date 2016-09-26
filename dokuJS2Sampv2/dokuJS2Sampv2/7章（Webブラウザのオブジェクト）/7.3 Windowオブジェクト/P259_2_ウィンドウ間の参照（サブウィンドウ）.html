@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>サブウィンドウ</title>
+  <script>
+  function referParentDocument(){
+    // サブウィンドウから親ウィンドウの要素を取得
+    var element = opener.document.getElementById('title');
+    alert(element.innerHTML);
+  }
+  
+  function invokeParentWindow(){
+    // サブウィンドウから親ウィンドウで定義されている関数を呼び出す
+    opener.hello();
+  }
+  
+  function hello(){
+    alert('サブウィンドウの関数が呼び出されました。');
+  }
+  </script>
+  
+  <style type="text/css">
+  input {
+    width: 100%;
+  }
+  </style>
+</head>
+<body>
+  <input type="button" value="親ウィンドウのドキュメントを参照" onclick="referParentDocument()">
+  <input type="button" value="親ウィンドウの関数を呼び出す" onclick="invokeParentWindow()">
+</body>
+</html>

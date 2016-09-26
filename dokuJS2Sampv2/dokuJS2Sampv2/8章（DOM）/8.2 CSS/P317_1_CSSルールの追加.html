@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CSSルールの追加</title>
+  <style type="text/css">
+  strong {
+    color: blue;
+  }
+  </style>
+</head>
+<body>
+
+<p>
+  <strong>ボタンを押すと文字が赤くなります</strong>
+</p>
+
+<input type="button" value="CSSルールを追加" onclick="addCSSRule()">
+
+<script>
+function addCSSRule(){
+  var selector = "strong";
+  var style = "color: red";
+  
+  document.styleSheets[0].insertRule(selector + "{" + style + "}", document.styleSheets[0].cssRules.length);
+}
+</script>
+</body>
+</html>

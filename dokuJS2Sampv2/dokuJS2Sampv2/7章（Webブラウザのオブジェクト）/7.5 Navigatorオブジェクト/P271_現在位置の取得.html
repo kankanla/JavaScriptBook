@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>現在位置の取得</title>
+</head>
+<body>
+  <input type="button" value="現在位置を表示" onclick="showCurrentLocation()">
+  <script>
+  function showCurrentLocation(){
+    navigator.geolocation.getCurrentPosition(function(pos){
+      // 経度を取得
+      var latitude  = pos.coords.latitude;
+      // 緯度を取得
+      var longitude = pos.coords.longitude;
+      alert('現在位置：' + latitude + ', ' + longitude);
+    });
+  }
+  </script>
+</body>
+</html>

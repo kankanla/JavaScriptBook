@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+<script>
+// [戻る][進む]ボタンで移動した際のイベント
+window.onpopstate = function(event) {
+    if (event.state == undefined) { // 履歴がない場合は初回扱い
+        showDetail(0);
+    } else {
+        showDetail(event.state.detailNo); // 履歴に保存されているリストを表示
+    }
+}
+// 状態をpushState()してから詳細の表示を書き換える
+function pushStateAndShowDetail(_detailNo) {
+    // 現状のステータスを保存
+    history.pushState({"detailNo" : _detailNo}, "", "#" + _detailNo);
+    // 詳細を更新
+    showDetail(_detailNo);
+}
+// ブックマークから直接呼び出された場合もハッシュの値で詳細を表示する。
+window.onload = function() {
+    if (location.hash.length > 1) {
+        showDetail(parseInt(location.hash.substring(1)));
+    }
+}
+// 詳細の表示を書き換え
+function showDetail(_detailNo) {
+    switch (_detailNo) {
+        case 0: // 初期状態
+            document.getElementById("detail").innerText = "詳細がここに表示されます。";
+            break;
+        case 1:
+            document.getElementById("detail").innerText = "アイテム１の詳細です。\r\nああ";
+            break;
+        case 2:
+            document.getElementById("detail").innerText = "アイテム２の詳細です。\r\nいい";
+            break;
+    }
+}
+</script>
+</head>
+<body>
+タイトルをクリックすると、詳細が表示されます。
+<br><br>
+<span id="item1" onclick="pushStateAndShowDetail(1);" style="background-color:#88FFAA;">タイトル1</span>
+<br>
+<span id="item2" onclick="pushStateAndShowDetail(2);" style="background-color:#88FFAA;">タイトル2</span>
+<br>
+<div id="detail" style="background-color:#FFAA88; padding:4px; margin:8px;">
+詳細がここに表示されます。
+</div>
+</body>
+</html>

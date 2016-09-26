@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>配列の操作</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<h1>配列の操作</h1>
+
+<input type="button" id="array_merge" value="配列のマージ"/>
+<input type="button" id="array_grep" value="要素の抽出"/>
+<input type="button" id="array_map" value="要素の変換"/>
+<input type="button" id="array_unique" value="重複の削除"/>
+
+<script>
+$(function(){
+  $('#array_merge').click(function(){
+    var array1 = ['red', 'blue', 'green'];
+    var array2 = ['black', 'white'];
+    
+    // array1にarray2の要素を追加
+    $.merge(array1, array2);
+    
+    alert(array1); // => ['red', 'blue', 'green', 'black', 'white']
+    console.log(array1);
+  });
+  
+  $('#array_grep').click(function(){
+    var array = ['red', 'blue', 'green', 'black', 'white'];
+    
+    // 'b'ではじまる要素を抽出
+    var result = $.grep(array, function(e, i){
+      return e.charAt(0) == 'b';
+    });
+    
+    alert(result); // => ['blue', 'black']
+    console.log(result);
+  });
+  
+  $('#array_map').click(function(){
+    var array = ['red', 'blue', 'green'];
+    
+    // 要素を大文字に変換
+    var result = $.map(array, function(e, i){
+      return e.toUpperCase();
+    });
+    
+    alert(result); // => ['RED', 'BLUE', 'GREEN']
+    console.log(result);
+  });
+  
+  $('#array_unique').click(function(){
+    var array = ['red', 'blue', 'green', 'red', 'green'];
+    
+    // 重複を排除
+    var result = $.unique(array);
+    
+    alert(result); // => ['red', 'blue', 'green']
+    console.log(result);
+  });  
+});
+</script>
+
+
+
+
+</body>
+</html>

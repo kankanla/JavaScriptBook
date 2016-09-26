@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ウィンドウ間の参照</title>
+  <script>
+  function openSubWindow(){
+    // サブウィンドウを開く
+    var w = open('P277_ウィンドウ間の参照（サブウィンドウ）.html', 'subwindow', 'width=300, height=150');
+    // サブウィンドウの要素を取得
+    var element = w.document.getElementById('id');
+    // サブウィンドウで定義されている関数を呼び出す
+    w.hello();
+  }
+  
+  function hello(){
+    alert('親ウィンドウの関数が呼び出されました。');
+  }
+  </script>
+</head>
+<body>
+  <h1 id="title">ウィンドウ間の参照</h1>
+  <input type="button" value="サブウィンドウを開く" onclick="openSubWindow()">
+</body>
+</html>

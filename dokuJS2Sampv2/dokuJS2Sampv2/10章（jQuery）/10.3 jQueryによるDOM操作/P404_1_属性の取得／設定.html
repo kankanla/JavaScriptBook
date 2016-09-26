@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>属性の取得／設定</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<h1>属性の取得／設定</h1>
+
+<input type="button" id="get_attr" value="属性値を取得"/>
+<input type="button" id="set_attr1" value="属性値を設定"/>
+<input type="button" id="set_attr2" value="属性値をまとめて設定"/>
+
+<p>
+  <a href="http://www.yahoo.co.jp/" title="Yahoo! JAPAN">このリンクの属性を取得・設定します</a>
+</p>
+
+<script>
+$(function(){
+  $('#get_attr').click(function(){
+    // a要素のhref属性を取得
+    var url = $('a').attr('href');
+    alert(url);
+  });
+  
+  $('#set_attr1').click(function(){
+    // a要素のhref属性を設定
+    $('a').attr('href', 'http://www.google.co.jp/');
+  });
+  
+  $('#set_attr2').click(function(){
+    // 複数の属性をまとめて設定
+    $('a').attr({
+      title: 'Google',
+      href: 'http://www.google.co.jp/'
+    });
+  });
+});
+</script>
+</body>
+</html>

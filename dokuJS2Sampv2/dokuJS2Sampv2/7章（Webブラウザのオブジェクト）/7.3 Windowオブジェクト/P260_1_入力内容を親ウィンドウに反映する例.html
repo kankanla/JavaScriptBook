@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>入力内容を親ウィンドウに反映する例</title>
+  <script>
+  function openSubWindow(){
+    // サブウィンドウを開く
+    var w = open('P260_2_入力内容を親ウィンドウに反映する例（サブウィンドウ）.html', 'subwindow', 'width=400, height=150');
+  }
+  </script>
+</head>
+<body>
+  <form name="form">
+    <input type="text" name="userId">
+    <input type="button" value="サブウィンドウを開く" onclick="openSubWindow()">
+  </form>
+</body>
+</html>

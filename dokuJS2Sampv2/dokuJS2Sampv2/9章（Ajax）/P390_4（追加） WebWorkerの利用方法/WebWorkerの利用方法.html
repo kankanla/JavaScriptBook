@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+</head>
+<body>
+<input type="button" value="WebWorkerを起動" onclick="startWorker();"/>
+<script>
+function startWorker(){
+  // WebWorkerを生成
+  var worker = new Worker('worker.js');//　… ①
+  // WebWorkerからのメッセージを受け取るイベントリスナを設定
+  worker.addEventListener("message", function(e){ //… ②
+    alert(e.data);
+  });
+  // Workerを起動
+  worker.postMessage(100); //… ③
+}
+</script>
+</body>
+</html>

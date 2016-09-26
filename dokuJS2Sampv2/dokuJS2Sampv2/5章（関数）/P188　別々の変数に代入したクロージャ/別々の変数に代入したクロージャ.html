@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+function closureOuter() {
+	var i = 0;
+	return function() {
+		i++;
+		return i;
+	};
+}
+var closure = closureOuter();
+document.write('1-1回目:' + closure() + '<br>'); // "1"が表示される
+document.write('1-2回目:' + closure() + '<br>'); // "2"が表示される
+var closure2 = closureOuter();
+document.write('2-1回目:' + closure2() + '<br>'); // "3"ではなく"1"が表示される
+</script>
+</body>
+</html>

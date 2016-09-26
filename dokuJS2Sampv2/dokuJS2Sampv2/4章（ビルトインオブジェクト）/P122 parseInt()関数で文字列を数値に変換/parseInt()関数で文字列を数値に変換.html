@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+// parseInt()関数でさまざまな値を変換する
+var res1 = parseInt('5') + parseInt('3'); // 5 + 3='8'
+document.write('type：' + typeof res1 + '<br>'); // 'number' ①
+document.write('result：' + res1 + '<br>'); // '8'
+document.write('parseInt(16進)：' + parseInt('0x10', '0x') + '<br>'); //②
+document.write('parseInt(A)：' + parseInt('A') + '<br>'); //③
+document.write('parseInt(123abc)：' + parseInt('123abc') + '<br>'); //④
+</script>
+</body>
+</html>

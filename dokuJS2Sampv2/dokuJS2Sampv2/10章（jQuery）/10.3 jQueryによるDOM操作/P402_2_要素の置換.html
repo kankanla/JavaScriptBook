@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>要素の置換</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<h1>要素の置換</h1>
+
+<input type="button" id="replaceWith" value="replaceWith"/>
+<input type="button" id="replaceAll" value="replaceAll"/>
+
+<div>この要素が置換されます</div>
+
+<script>
+$(function(){
+  $('#replaceWith').click(function(){
+    // div要素を置換
+    $('div').replaceWith($('<div>要素を置換</div>'));
+  });
+  
+  $('#replaceAll').click(function(){
+    // 上記のコードと同じ
+    $('<div>要素を置換</div>').replaceAll($('div'));
+  });
+});
+</script>
+</body>
+</html>

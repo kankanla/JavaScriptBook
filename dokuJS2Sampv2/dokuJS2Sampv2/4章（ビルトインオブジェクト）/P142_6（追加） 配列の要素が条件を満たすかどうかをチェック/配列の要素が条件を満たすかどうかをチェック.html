@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+var a = [1, 2, 3, 4, 5]; 
+var be = a.every(function(value) { return (value <= 3); }); // すべてが3以下かどうか？ 
+var bs = a.some(function(value) { return (value <= 3); }); // 3以下の要素があるかどうか？ 
+document.write("(1)every : " + be + "<br/>"); // "false" 
+document.write("(1)some : " + bs + "<br/>"); // "true" 
+var be = a.every(function(value) { return (value <= 10); }); // すべてが10以下かどうか？ 
+document.write("(2)every : " + be + "<br/>"); // "true"
+</script>
+</body>
+</html>

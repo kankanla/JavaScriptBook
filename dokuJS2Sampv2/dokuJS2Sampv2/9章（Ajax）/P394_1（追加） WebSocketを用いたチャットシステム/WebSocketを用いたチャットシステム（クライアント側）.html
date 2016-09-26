@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+<script>
+var socket = new WebSocket("ws://localhost:1337/"); // WebSocketオブジェクトを利用する
+window.onload = function() {
+  // サーバからメッセージを受け取った際のイベント
+  socket.onmessage = function(event) {
+    document.forms[0].messages.value = document.forms[0].messages.value + "\r\n" + event.data;
+  }
+}
+// サーバにメッセージを送信（JSONで文字列に変換して送信する）
+function sendMessage() {
+  socket.send(JSON.stringify({"text":document.forms[0].messageText.value, "author":document.forms[0].authorName.value}));
+}
+</script>
+</head>
+<body>
+<form>
+送信者：<input type="text" name="authorName" value="" /><br/>
+送信メッセージ：<input type="text" name="messageText" value="" />
+<input type="button" value="メッセージを送信" onclick="sendMessage();" />
+<p>
+受信メッセージ：<br>
+<textarea name="messages" rows="10" cols="50"></textarea>
+</p>
+</form>
+</body>
+</html>

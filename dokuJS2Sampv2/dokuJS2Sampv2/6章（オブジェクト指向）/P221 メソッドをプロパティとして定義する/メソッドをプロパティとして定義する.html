@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+// メッセージ情報を管理するクラス
+function MessageInfo(message) {
+	this.message = message;
+	this.alertMessage = function() {
+		alert(this.message);
+	};
+}
+// 処理の実行
+var msg1 = new MessageInfo('こんにちは');
+msg1.alertMessage();
+
+
+
+
+</script>
+</body>
+</html>

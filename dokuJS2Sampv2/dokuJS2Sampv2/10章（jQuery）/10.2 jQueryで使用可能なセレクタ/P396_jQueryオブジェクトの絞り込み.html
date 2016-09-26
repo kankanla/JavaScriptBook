@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>jQueryオブジェクトの絞り込み</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<h1>jQueryオブジェクトの絞り込み</h1>
+
+<ul id="books">
+  <li>独習JavaScript 改訂第二版</li>
+  <li>Scala逆引きレシピ</li>
+  <li>現場で使えるJavaライブラリ</li>
+  <li>Seasar2徹底入門</li>
+</ul>
+
+<script>
+$(function(){
+  ////////////////////////////////////////////////////
+  // インデックスによる要素の絞り込み
+  ////////////////////////////////////////////////////
+  
+  // 先頭のli要素を取得
+  console.log('-- 先頭のli要素を取得 --');
+  console.log($('li').first().text());
+  
+  // 最後のli要素を取得
+  console.log('-- 最後のli要素を取得 --');
+  console.log($('li').last().text());
+  
+  // 3番目のli要素を取得
+  console.log('-- 3番目のli要素を取得 --');
+  console.log($('li').eq(2).text());
+  
+  // 2番目から4番目までのli要素を取得
+  console.log('-- 2番目から4番目までのli要素を取得 --');
+  $('li').slice(1, 4).each(function(i, e){
+    console.log($(e).text());
+  });
+  
+  // 3番目以降のli要素を取得
+  console.log('-- 3番目以降のli要素を取得 --');
+  $('li').slice(2).each(function(i, e){
+    console.log($(e).text());
+  });
+  
+  ////////////////////////////////////////////////////
+  // セレクタによる絞り込み
+  ////////////////////////////////////////////////////
+  
+  // 偶数番目のli要素を取得
+  console.log('-- 偶数番目のli要素を取得 --');
+  $('ul#books > li').filter(':even').each(function(i, e){
+    console.log($(e).text());
+  });
+  
+  // 先頭以外のli要素を取得
+  console.log('-- 先頭以外のli要素を取得 --');
+  $('ul#books > li').not(':first').each(function(i, e){
+    console.log($(e).text());
+  });
+  
+  // 偶数番目のli要素を取得（関数で条件を指定）
+  console.log('-- 偶数番目のli要素を取得（関数で条件を指定） --');
+  $('ul#books > li').filter(function(i){
+    return i % 2 == 0;
+  }).each(function(i, e){
+    console.log($(e).text());
+  });
+  
+  // 先頭以外のli要素を取得（関数で条件を指定）
+  console.log('-- 先頭以外のli要素を取得（関数で条件を指定） --');
+  $('ul#books > li').not(function(i){
+    return i == 0;
+  }).each(function(i, e){
+    console.log($(e).text());
+  });
+  
+  // セレクタに一致する子孫を持つ要素のみ抽出
+  console.log('-- セレクタに一致する子孫を持つ要素のみ抽出 --');
+  console.log($('ul').has('li:contains(JavaScript)').attr('id'));
+  
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>$.getScript()メソッドでJSONPを取得</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<h1>$.getScript()メソッドでJSONPを取得</h1>
+
+<input type="button" id="search" value="検索"/>
+<div id="video_list"></div>
+
+<script>
+$(function(){
+  $('#search').click(function(){
+    $.getJSON('http://gdata.youtube.com/feeds/api/standardfeeds/JP/top_rated?callback=?',
+      {
+        'alt': 'json-in-script',
+        'max-results': 10
+      },
+      function(data){
+        $.each(data.feed.entry, function(i, entry){
+          $('#video_list').append($('<div>').text((i + 1) + '件目:' + entry.title.$t + 
+            '[' + entry.author.map(function(a) { return a.name.$t; }).join(", ") + ']'
+          ));
+        });
+      }
+    );
+  });
+});
+</script>
+</body>
+</html>

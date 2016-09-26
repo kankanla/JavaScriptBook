@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ウィンドウのオープンとクローズ</title>
+</head>
+<body>
+  <script>
+  var w = null;
+  // ウィンドウが開いていない場合ウィンドウを開く
+  function openWindow(){
+    w = open('http://www.google.co.jp', 'google',
+      'width=400px, height=200');
+  }
+  // ウィンドウが開かれている場合閉じる
+  function closeWindow(){
+    if(w){
+      w.close();
+      w = null;
+    }
+  }
+  </script>
+  <input type="button" value="ウィンドウを開く" onclick="openWindow()"/>
+  <input type="button" value="ウィンドウを閉じる" onclick="closeWindow()"/>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>親要素の追加／削除</title>
+  <script src="jquery-1.9.1.js"></script>
+  <style type="text/css">
+  .contents {
+    border: 1px solid silver;
+    margin: 5px;
+  }
+  </style>
+</head>
+<body>
+<h1>親要素の追加／削除</h1>
+
+<input type="button" id="wrap" value="wrap"/>
+<input type="button" id="unwrap" value="unwrap"/>
+<input type="button" id="wrapAll" value="wrapAll"/>
+<input type="button" id="wrapInner" value="wrapInner"/>
+
+<div id="target">この要素に親要素を追加・削除します</div>
+
+<script>
+$(function(){
+  $('#wrap').click(function(){
+    // div要素を新たなdiv要素でラップする
+    $('div#target').wrap($('<div class="contents"></div>'));
+  });
+  
+  $('#unwrap').click(function(){
+    // div要素から親要素を削除
+    $('div#target').unwrap();
+  });
+  
+  $('#wrapAll').click(function(){
+    // body要素の子要素全体を新たなdiv要素でラップする
+    $('body > *').wrapAll($('<div class="contents"></div>'));
+  });
+  
+  $('#wrapInner').click(function(){
+    // 上記のコードと同じ
+    $('body').wrapInner($('<div class="contents"></div>'));
+  });
+});
+</script>
+</body>
+</html>

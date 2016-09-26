@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>子要素の追加</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<h1>子要素の追加</h1>
+
+<input type="button" id="append" value="append"/>
+<input type="button" id="prepend" value="prepend"/>
+<input type="button" id="appendTo" value="appendTo"/>
+<input type="button" id="prependTo" value="prependTo"/>
+
+<ul></ul>
+
+<script>
+$(function(){
+  $('#append').click(function(){
+    $('ul').append($('<li>末尾に追加</li>'));
+  });
+  
+  $('#prepend').click(function(){
+    $('ul').prepend($('<li>先頭に追加</li>'));
+  });
+  
+  $('#appendTo').click(function(){
+    $('<li>末尾に追加</li>').appendTo($('ul'));
+  });
+  
+  $('#prependTo').click(function(){
+    $('<li>先頭に追加</li>').prependTo($('ul'));
+  });  
+});
+</script>
+</body>
+</html>

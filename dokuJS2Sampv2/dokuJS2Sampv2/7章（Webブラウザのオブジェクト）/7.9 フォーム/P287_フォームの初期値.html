@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>フォームの初期値</title>
+</head>
+<body>
+<form name="form">
+  <input type="text" name="name" value="お名前をどうぞ">
+  <input type="button" value="戻す" onclick="resetName()">
+  <input type="button" value="変更確認" onclick="confirmChange()">
+</form>
+<script>
+function resetName(){
+  var name = document.form.name;
+  name.value = name.defaultValue;
+}
+
+function confirmChange(){
+  var name = document.form.name;
+  if(name.value != name.defaultValue){
+    // 変更されている
+    alert('初期値から変更されています。');
+  } else {
+    // 変更されていない
+    alert('初期値から変更されていません。');
+  }
+}
+</script></body>
+</html>

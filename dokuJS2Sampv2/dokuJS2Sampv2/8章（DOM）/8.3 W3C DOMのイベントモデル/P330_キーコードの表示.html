@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>キーコードの表示</title>
+</head>
+<body>
+<h1>キーコードの表示</h1>
+<p>
+  テキストフィールドに入力されたキーコードを文字に変換してコンソールに出力します。
+</p>
+<input type="text" id="textfield"/>
+<script>
+var field = document.getElementById('textfield');
+field.addEventListener('keydown', function(e){
+  // キーコードを文字に変換してコンソールに出力
+  console.log(String.fromCharCode(e.keyCode));
+});
+</script>
+
+</body>
+</html>

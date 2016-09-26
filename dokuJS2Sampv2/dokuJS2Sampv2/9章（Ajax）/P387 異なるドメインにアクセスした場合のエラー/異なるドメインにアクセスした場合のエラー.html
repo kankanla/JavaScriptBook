@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+	var request = new window.XMLHttpRequest();
+	request.onreadystatechange = function() {
+		if (request.readyState == 4 && request.status == 200) {
+			var msgInfos = request.responseXML.getElementsByTagName("message");
+			for (var i = 0; i < msgInfos.length; i++) {
+				alert(msgInfos[i].firstChild.nodeValue);
+			}
+		}
+	};
+	request.open('GET', 'http://www.google.co.jp', true);
+	request.send(null);
+</script>
+</body>
+</html>

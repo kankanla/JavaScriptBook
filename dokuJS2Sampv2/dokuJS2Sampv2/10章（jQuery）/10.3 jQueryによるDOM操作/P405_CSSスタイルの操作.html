@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CSSスタイルの操作</title>
+  <script src="jquery-1.9.1.js"></script>
+  <style type="text/css">
+  .title {
+    color: red;
+  }
+  </style>
+</head>
+<body>
+<h1>CSSスタイルの操作</h1>
+
+<fieldset>
+  <legend>style属性の操作</legend>
+  <input type="button" id="set_css1" value="スタイルを設定"/>
+  <input type="button" id="set_css2" value="スタイルをまとめて設定"/>
+  <input type="button" id="get_css" value="スタイルを取得"/>
+</fieldset>
+
+<fieldset>
+  <legend>class属性の操作</legend>
+  <input type="button" id="add_class" value="class属性を追加"/>
+  <input type="button" id="remove_class" value="class属性を削除"/>
+  <input type="button" id="toggle_class" value="class属性を切替"/>
+  <input type="button" id="has_class" value="class属性を調べる"/>
+</fieldset>
+
+<fieldset>
+  <legend>表示／非表示の切り替え</legend>
+  <input type="button" id="hide" value="非表示"/>
+  <input type="button" id="show" value="表示"/>
+  <input type="button" id="toggle" value="表示／非表示を切替"/>
+</fieldset>
+
+<script>
+$(function(){
+  $('#set_css1').click(function(){
+    // スタイルを設定
+    $('h1').css('color', 'red');
+  });
+  
+  $('#set_css2').click(function(){
+    // スタイルをまとめて設定
+    $('h1').css({
+      'background-color': 'navy',
+      'color': 'white',
+      'padding': '2px'
+    });
+  });
+  
+  $('#get_css').click(function(){
+    // スタイルを取得
+    var color = $('h1').css('color');
+    alert(color);
+  });
+  
+  $('#add_class').click(function(){
+    // class属性にtitleクラスを追加
+    $('h1').addClass('title');
+  });
+  
+  $('#remove_class').click(function(){
+    // class属性からtitleクラスを削除
+    $('h1').removeClass('title');
+  });
+  
+  $('#toggle_class').click(function(){
+    // class属性のtitleクラスを切替
+    $('h1').toggleClass('title');
+  });
+  
+  $('#has_class').click(function(){
+    // class属性がtitleクラスを持っているかどうかを取得
+    var hasTitleClass = $('h1').hasClass('title');
+    alert('titleクラスを持っているか：' + hasTitleClass);
+  });
+  
+  $('#hide').click(function(){
+    // h1要素を非表示にする
+    $('h1').hide();
+  });
+  
+  $('#show').click(function(){
+    // h1要素を表示する
+    $('h1').show();
+  });
+  
+  $('#toggle').click(function(){
+    // h1要素の表示／非表示を切り替える
+    $('h1').toggle();
+  });
+});
+</script>
+</body>
+</html>

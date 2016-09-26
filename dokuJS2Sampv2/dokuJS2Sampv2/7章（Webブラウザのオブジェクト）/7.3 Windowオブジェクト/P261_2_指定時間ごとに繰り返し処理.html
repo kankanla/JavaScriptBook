@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>指定時間ごとに繰り返し処理</title>
+</head>
+<body>
+  <form name="form">
+    <input type="text" name="output" value="0">
+   <input type="button" value="カウントを開始" onclick="startTimer()">
+  </form>
+  
+  <script>
+  function startTimer(){
+    setInterval(function(){
+      document.form.output.value = parseInt(document.form.output.value) + 1;
+    }, 1000);
+  }
+  </script>
+</body>
+</html>

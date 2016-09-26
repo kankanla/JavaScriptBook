@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>XMLやJSONのパース</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+
+<h1>XMLやJSONのパース</h1>
+
+<input type="button" id="parse_xml" value="XMLのパース"/>
+<input type="button" id="parse_json" value="JSONのパース"/>
+
+<script>
+$(function(){
+  $('#parse_xml').click(function(){
+    // XMLをパースしてDocumentオブジェクトに変換
+    var xml = $.parseXML('<book>' + 
+      '<title>独習JavaScript</title>' +
+      '<publisher>翔泳社</publisher>' +
+      '</book>');
+
+    alert('タイトル:' + $(xml).find('title').text() + '\n' + 
+          '出版社:' + $(xml).find('publisher').text());
+  });
+  
+  $('#parse_json').click(function(){
+    // JSONをパースしてJavaScriptオブジェクトに変換
+    var json = $.parseJSON('{ "title": "独習JavaScript", "publisher": "翔泳社" }');
+    
+    alert('タイトル:' + json.title + '\n' + 
+          '出版社:' + json.publisher);
+    
+  });
+});
+</script>
+
+</body>
+</html>

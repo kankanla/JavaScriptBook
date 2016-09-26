@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+    var circle = {
+        radius : 1, // 半径
+        get diameter() { return this.radius * 2; }, // 直径は半径から算出
+        set diameter(value) { this.radius = value / 2;} // 直径から半径を算出
+    }
+    circle.diameter = 5;
+    alert(circle.radius); // "2.5"
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ドキュメントフラグメント</title>
+</head>
+<body>
+<!-- この要素にドキュメントフラグメントを追加します-->
+<ul id="list"></ul>
+
+<script>
+// ドキュメントフラグメントを作成
+var fragment = document.createDocumentFragment();
+fragment.appendChild(createLI('独習Java'));
+fragment.appendChild(createLI('独習PHP'));
+fragment.appendChild(createLI('独習JavaScript'));
+
+// <ul>要素に追加
+document.getElementById('list').appendChild(fragment);
+
+// <li>要素を作成するための関数
+function createLI(text){
+  var li = document.createElement('li');
+  li.appendChild(document.createTextNode(text));
+  return li;
+}
+</script>
+</body>
+</html>

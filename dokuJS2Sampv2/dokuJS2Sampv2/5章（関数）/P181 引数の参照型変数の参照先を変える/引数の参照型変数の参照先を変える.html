@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+function sample(o) {
+  o = {a:'変更'};  // オブジェクトの参照を変更
+}
+var o1 = {a:'初期値'};
+sample(o1);
+alert(o1.a);
+</script>
+</body>
+</html>

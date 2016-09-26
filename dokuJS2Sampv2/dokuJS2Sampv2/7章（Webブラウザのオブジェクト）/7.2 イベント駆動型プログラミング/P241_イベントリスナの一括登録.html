@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>イベントリスナの一括登録</title>
+</head>
+<body>
+  <div>
+    マウスが要素内に入ると赤い枠線が表示されます。
+  </div>
+  <div>
+    マウスが要素から出ると枠線も消えます。
+  </div>
+  
+  <script>
+  // マウスが要素内に入ったときに呼び出される関数
+  // 要素に赤い枠線を表示します
+  function showBorder(){
+    this.style.border = '1px solid red';
+  }
+  
+  // マウスが要素から出たときに呼び出される関数
+  // 要素の枠線を消去します
+  function hideBorder(){
+    this.style.border = '';
+  }
+  
+  // すべての<div>要素にイベントリスナを登録
+  var elements = document.getElementsByTagName('div');
+  for(var i=0;i<elements.length;i++){
+    elements[i].onmouseover = showBorder;
+    elements[i].onmouseout = hideBorder;
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>チェックボックスの値を取得</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+チェックボックス：
+<input type="checkbox" name="lang" id="java" value="Java">
+<label for="java">Java</label>
+<input type="checkbox" name="lang" id="js" value="JavaScript">
+<label for="js">JavaScript</label>
+<input type="button" id="button" value="クリック">
+<script>
+$(function(){
+  $('#button').click(function(){
+    var message = '';
+    // id属性がjavaのチェックボックスが選択されているかどうかを取得
+    if($('#java').prop('checked')){
+      message = message + 'Javaが選択されています。\n';
+    }
+    // id属性がjsのチェックボックスが選択されているかどうかを取得
+    if($('#js').prop('checked')){
+      message = message + 'JavaScriptが選択されています。\n';
+    }
+    alert(message);
+  });
+});
+</script>
+</body>
+</html>

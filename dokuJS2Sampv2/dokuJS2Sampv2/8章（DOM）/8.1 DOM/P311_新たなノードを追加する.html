@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>新たなノードを追加する</title>
+</head>
+<body>
+
+<p onclick="insertElement(this)">
+  元のテキスト
+</p>
+
+<script>
+function insertElement(element){
+  // 新しいspan要素を作成
+  var newElement = document.createElement('span');
+  newElement.innerHTML = '新しいspan要素';
+  // 引数で渡された要素の末尾に追加
+  element.appendChild(newElement);
+}
+</script>
+</body>
+</html>

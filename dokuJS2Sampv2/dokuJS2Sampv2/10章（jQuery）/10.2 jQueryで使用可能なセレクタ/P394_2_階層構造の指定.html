@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>階層構造の指定</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<h1>階層構造の指定</h1>
+
+<table class="books">
+  <thead>
+    <tr>
+      <th>書籍名</th>
+      <th>著者</th>
+      <th>出版社</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>独習JavaScript 改訂第二版</td>
+      <td>高橋和也、里見知宏、竹添直樹</td>
+      <td>翔泳社</td>
+    </tr>
+    <tr>
+      <td>Scala逆引きレシピ</td>
+      <td>竹添直樹、島本多可子</td>
+      <td>翔泳社</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="books">
+  <thead>
+    <tr>
+      <th>書籍名</th>
+      <th>著者</th>
+      <th>出版社</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>現場で使えるJavaライブラリ</td>
+      <td>竹添直樹、島本多可子、小津美夕紀、亀井隆司</td>
+      <td>翔泳社</td>
+    </tr>
+    <tr>
+      <td>Seasar2徹底入門</td>
+      <td>竹添直樹</td>
+      <td>翔泳社</td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+$(function(){
+  // 親子関係（直下の要素を選択）
+  $('table.books > thead > tr').css('background-color', '#eee');
+  
+  // 子孫関係（配下の要素を選択）
+  $('table.books th, td').css('padding', '4px');
+  
+  // 兄弟関係（直後の要素を選択）
+  $('h1 + table.books').css('margin-bottom', '20px');
+
+  // 兄弟関係（後続の要素を選択）
+  $('h1 ~ table.books').css('width', '100%');
+});
+</script>
+</body>
+</html>

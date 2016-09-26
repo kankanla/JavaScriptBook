@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>要素の挿入</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<h1>要素の挿入</h1>
+
+<input type="button" id="after" value="after"/>
+<input type="button" id="before" value="before"/>
+<input type="button" id="insertAfter" value="insertAfter"/>
+<input type="button" id="insertBefore" value="insertBefore"/>
+
+<ul>
+  <li id="target">この要素の前後に挿入されます。</li>
+</ul>
+
+<script>
+$(function(){
+  $('#after').click(function(){
+    $('li#target').after($('<li>直後に追加</li>'));
+  });
+  
+  $('#before').click(function(){
+    $('li#target').before($('<li>直前に追加</li>'));
+  });
+  
+  $('#insertAfter').click(function(){
+    $('<li>直後に追加</li>').insertAfter($('li#target'));
+  });
+  
+  $('#insertBefore').click(function(){
+    $('<li>直前に追加</li>').insertBefore($('li#target'));
+  });  
+});
+</script>
+</body>
+</html>

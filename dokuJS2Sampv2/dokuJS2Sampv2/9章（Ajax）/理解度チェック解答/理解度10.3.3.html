@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+<script>
+var socket = new WebSocket("ws://localhost:1337/");
+window.onload = function() {
+  socket.onmessage = function(event) {
+    alert(event.data);
+  }
+}
+</script>
+</head>
+<body>
+</body>
+</html>

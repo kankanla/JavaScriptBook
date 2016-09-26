@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>要素の内容を変更する</title>
+</head>
+<body>
+
+<h1>要素内のテキストを書き換える</h1>
+
+<p onclick="replaceText(this, '置換後のテキスト')">
+  元のテキスト
+</p>
+
+<script>
+function replaceText(element, text){
+  element.textContent = text;
+}
+</script>
+
+
+<h1>innerHTMLプロパティによるHTMLの挿入</h1>
+
+<p onclick="this.innerHTML = '<ins>置換後のテキスト</ins>'">
+元のテキスト
+</p>
+
+
+<h1>属性値の変更</h1>
+
+<a id="link" href="http://www.google.co.jp/">Google</a>
+<input type="button" value="クリック" onclick="changeLinkTarget()"/>
+
+<script>
+function changeLinkTarget(){
+  var link = document.getElementById('link');
+  link.setAttribute('href', 'http://www.yahoo.co.jp/');
+}
+</script>
+
+</body>
+</html>

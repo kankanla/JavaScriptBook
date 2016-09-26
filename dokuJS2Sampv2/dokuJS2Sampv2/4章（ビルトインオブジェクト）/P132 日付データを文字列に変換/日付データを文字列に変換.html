@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+var d = new Date('2008/07/08'); // Dateオブジェクトを生成
+// 標準の日付フォーマットで日付を表示
+var dateStr = d.toDateString();
+document.write('dateString : ' + dateStr + '<br>');
+// 現地日付のフォーマットで日付を表示
+var localeDateStr = d.toLocaleDateString();
+document.write('localeDateString : ' + localeDateStr);
+</script>
+</body>
+</html>

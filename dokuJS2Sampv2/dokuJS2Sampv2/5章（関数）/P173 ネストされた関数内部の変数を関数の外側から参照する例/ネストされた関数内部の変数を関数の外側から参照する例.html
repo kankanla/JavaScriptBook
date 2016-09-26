@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+// 円錐の体積を求める関数
+function calcCone(radius, height) {
+	// 底面の面積を求める関数
+	function calcCircle(r) {
+		var circle = r * r * Math.PI; // ネスト関数内で変数にセット
+		return circle;
+	}
+	var d = calcCircle(radius) * height / 3; // 関数の内部で定義した関数を呼び出す
+	alert(circle); // ネスト関数内で定義された変数を参照→ エラーになる
+}
+alert(calcCone(10, 10));
+</script>
+</body>
+</html>

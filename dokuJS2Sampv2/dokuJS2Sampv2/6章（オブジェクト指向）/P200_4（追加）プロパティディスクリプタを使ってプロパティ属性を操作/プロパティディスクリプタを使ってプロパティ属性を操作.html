@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+var obj = {x:10};
+var desc = Object.getOwnPropertyDescriptor(obj, "x");
+document.write("(1)writable : " + desc.writable + "<br />"); // "true"
+obj.x = 20; // 代入OK
+document.write("(2)value : " + obj.x + "<br />"); // "20"
+desc.writable = false; // 代入不可に変更。
+Object.defineProperty(obj, "x", desc);
+document.write("(3)value : " + obj.x + "<br />"); // 代入できなくなったので"10"に戻っている
+document.write("(4)writable : " + desc.writable + "<br />"); // "false"
+obj.x = 30; // 代入に失敗するが、エラーは発生しない。
+document.write("(5)value : " + obj.x + "<br />"); // "10"のまま
+</script>
+</body>
+</html>

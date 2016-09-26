@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+// メッセージ情報を管理するクラス（スーパークラス）
+function MessageInfo(message) {
+	this.message = message;
+}
+// MesasgeInfoを継承したエラーメッセージを管理するクラス（サブクラス）
+function ErrorMessageInfo(message, errorLevel) {
+	this.errorLevel = errorLevel;
+	MessageInfo.apply(this, [message]); // スーパークラスのコンストラクタを呼び出す
+}
+// 処理の実行
+var eMsg1 = new ErrorMessageInfo('エラーです', 'error');
+alert(eMsg1.message);
+</script>
+</body>
+</html>

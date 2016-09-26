@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+    // 現在時刻を取得
+    var hour = new Date().getHours();
+    // 時刻に応じたCSSを参照するlink要素を書き出す
+    if(hour < 12){
+      document.write('<link rel="stylesheet" href="morning.css" >');
+    } else if(hour < 18){
+      document.write('<link rel="stylesheet" href="evening.css" >');
+    } else {
+      document.write('<link rel="stylesheet" href="night.css" >');
+    }
+    </script>
+  </head>
+  <body>
+    <h1>時間によってCSSを切り替えるサンプル</h1>
+  </body>
+</html>

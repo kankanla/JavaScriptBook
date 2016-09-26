@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>$.ajax()メソッドを使用したAjaxの例</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+
+<h1>$.ajax()メソッドを使用したAjaxの例</h1>
+
+<input type="button" id="ajax" value="JSONを取得して表示"/>
+<input type="button" id="ajax_option" value="オプションを指定して実行"/>
+
+<script>
+$(function(){
+  // キャッシュしないようにする
+  $.ajaxSetup({ cache: false });
+
+  $('#ajax').click(function(){
+    $.ajax('books.json')
+    .done(function(data, status, req){
+      // 成功したときに呼び出される
+      alert(data);
+    })
+    .fail(function(req, status, error){
+      // 失敗したときに呼び出される
+      alert('失敗: ' + error);
+    });
+  });
+  
+  $('#ajax_option').click(function(){
+    $.ajax('books.json', {
+      // サーバから返却されるデータ形式はJSON
+      dataType: 'json',
+      // リクエストパラメータを指定
+      data: {
+        author: '竹添 直樹'
+      }
+    })
+    .done(function(data, status, req){
+      // 返却されたJSONオブジェクトの内容を表示
+      $.each(data, function(i, book){
+        alert('タイトル：' + book.title + '\n' +
+              '著者：' + book.author);
+      });
+    });
+  });
+});
+</script>
+
+</body>
+</html>

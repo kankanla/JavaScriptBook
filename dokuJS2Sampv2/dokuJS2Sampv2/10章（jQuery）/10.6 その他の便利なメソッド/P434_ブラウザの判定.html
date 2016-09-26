@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ブラウザの判定</title>
+  <script src="jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script>
+</head>
+<body>
+
+<h1>ブラウザの判定</h1>
+
+<input type="button" id="show_browser" value="ブラウザの情報を表示"/>
+
+<script>
+$(function(){
+  $('#show_browser').click(function(){
+    // ブラウザの種類を表示
+    if($.browser.msie){
+      alert('あなたのブラウザはIEです。');
+    } else if($.browser.webkit){
+      alert('あなたのブラウザはWebKitです。');
+    } else if($.browser.opera){
+      alert('あなたのブラウザはOperaです。');
+    } else if($.browser.mozilla){
+      alert('あなたのブラウザはMozillaです。');
+    }
+    // ブラウザのバージョンを表示
+    alert('ブラウザのバージョンは' + $.browser.version + 'です。');
+  });
+});
+</script>
+
+</body>
+</html>

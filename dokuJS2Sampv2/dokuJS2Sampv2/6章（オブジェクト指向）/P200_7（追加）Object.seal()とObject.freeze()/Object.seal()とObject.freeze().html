@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+// Object.preventExtensions()
+var obj1 = {x : 10};
+Object.preventExtensions(obj1);
+obj1.x = 15; // 代入可能
+document.write("(1)value : " + obj1.x + "<br/>"); // "15"
+delete obj1.x; // 属性の削除も可能。
+document.write("(2)value : " + obj1.x + "<br/>"); // "undefined"
+// Object.seal()
+var obj2 = {x : 10};
+Object.seal(obj2);
+obj2.x = 15; // 代入可能
+document.write("(3)value : " + obj2.x + "<br/>"); // "15"
+delete obj2.x; // 再定義不可のため属性の削除ができない。
+document.write("(4)value : " + obj2.x + "<br/>"); // "15"
+// Object.freeze()
+var obj3 = {x : 10};
+Object.freeze(obj3);
+obj3.x = 15; // 代入も不可
+document.write("(5)value : " + obj3.x + "<br/>"); // "10"
+</script>
+</body>
+</html>

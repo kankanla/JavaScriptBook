@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+var obj = {x:10};
+document.write("(1)extensible : " + Object.isExtensible(obj) + "<br/>"); // 初期状態は"true"（拡張可能）
+Object.preventExtensions(obj); // objを拡張不可に設定する
+document.write("(2)extensible : " + Object.isExtensible(obj) + "<br/>"); // 拡張不可が設定されたので"false"
+obj.y = 20; // オブジェクトは拡張不可なのでこの処理は失敗する
+obj.x = 15; // 既存のプロパティのvalueは変更可能
+document.write("(3)value(x) : " + obj.x + "<br/>"); // "15"
+document.write("(3)value(y) : " + obj.y + "<br/>"); // "undefined"
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>属性の取得／設定</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<h1>属性の取得／設定</h1>
+
+<input type="button" id="set_text" value="text（設定）"/>
+<input type="button" id="get_text" value="text（取得）"/>
+<input type="button" id="set_html" value="html（設定）"/>
+<input type="button" id="get_html" value="html（取得）"/>
+
+<script>
+$(function(){
+  $('#set_text').click(function(){
+    // h1要素内のテキストを設定
+    $('h1').text('Hello, jQuery!');
+  });
+  
+  $('#get_text').click(function(){
+    // h1要素内のテキストを取得
+    var text = $('h1').text();
+    alert(text);
+  });
+  
+  $('#set_html').click(function(){
+    // h1要素内のHTMLを設定
+    $('h1').html('<a href="http://jquery.com/">Hello, jQuery!</a>');
+  });
+  
+  $('#get_html').click(function(){
+    // h1要素内のHTMLを取得
+    var html = $('h1').html();
+    alert(html);
+  });
+});
+</script>
+</body>
+</html>

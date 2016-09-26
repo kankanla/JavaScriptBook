@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+var request = new window.XMLHttpRequest();
+request.open('GET', '/data.txt', false); // 同期でGETリクエストを送信
+request.send(null);
+if (request.status == 200) {
+	alert(request.responseText);
+}
+</script>
+</body>
+</html>

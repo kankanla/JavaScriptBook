@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+var target = 'a09a10a11a12';
+// 通常の検索
+var result1 = target.indexOf('a1'); // 'a1'を検索①
+document.write('a1を検索: ' + result1 + '<br>');
+// 文字列の末尾から検索
+var result2 = target.lastIndexOf('a1'); // 末尾から'a1'を検索②
+document.write('後ろから検索:' + result2 + '<br>');
+// 途中から検索
+var result3 = target.indexOf('a1', 4); // 5文字目以降にある'a1'を検索③
+document.write('5文字目から検索: ' + result3 + '<br>');
+// 検索結果が見つからないとき
+var result4 = target.indexOf('A1'); // 文字列に含まれていない文字を検索④
+document.write('A1を検索: ' + result4 + '<br>');
+</script>
+</body>
+</html>

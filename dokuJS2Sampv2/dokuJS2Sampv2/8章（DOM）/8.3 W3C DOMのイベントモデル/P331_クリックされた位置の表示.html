@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>クリックされた位置の表示</title>
+</head>
+<body>
+<h1>クリックされた位置の表示</h1>
+<p>
+  以下の四角の中をクリックするとWebブラウザ内での位置をコンソールに出力します。
+</p>
+<div id="clickable" style="border: 1px solid gray; height: 150px;">
+</div>
+<script>
+var div = document.getElementById('clickable');
+div.addEventListener('mousedown', function(e){
+  console.log('mousedown: ' + e.clientX + ', ' + e.clientY);
+});
+</script>
+
+</body>
+</html>

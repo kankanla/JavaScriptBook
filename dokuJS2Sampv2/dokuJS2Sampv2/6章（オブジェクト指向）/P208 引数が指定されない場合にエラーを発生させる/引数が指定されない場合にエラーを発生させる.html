@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+// メッセージ情報を管理するクラス
+function MessageInfo(message) {
+	if (message == undefined) {
+		throw new Error('missing parameter \'message\'.'); // エラーとする
+	}
+	this.message = message;
+}
+// クラスの生成
+var msg1 = new MessageInfo();
+</script>
+</body>
+</html>

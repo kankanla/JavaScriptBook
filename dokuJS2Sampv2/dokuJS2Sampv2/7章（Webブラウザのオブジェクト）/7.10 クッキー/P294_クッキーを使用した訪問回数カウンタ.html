@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>クッキーのサンプル</title>
+  <!-- parseCookie()関数を含む外部JavaScriptファイルをインポート-->
+  <script src="parseCookie.js"></script>
+</head>
+<body>
+<script>
+var cookies = parseCookie();
+var count = cookies['COUNT'];
+// クッキーがなかったら初期値は0
+if(!count){
+  count = 0;
+}
+// カウントアップ
+count++;
+// カウントアップ後の値をクッキーにセット
+var expire = new Date();
+expire.setTime(expire.getTime() + (60 * 24 * 60 * 60 * 1000));
+document.cookie = 'COUNT=' + count + '; expires=' + expire.toGMTString();
+// カウントをブラウザに表示
+document.write(count + '回目の訪問です。');
+</script>
+</body>
+</html>

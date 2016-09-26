@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>入力値の取得設定</title>
+</head>
+<body>
+  <form name="form">
+    <input type="text" name="name" value="">
+    <input type="button" value="入力値を取得" onclick="showName()">
+    <input type="button" value="入力値を設定" onclick="setName()">
+  </form>
+  <script>
+  function showName(){
+    // テキストフィールドの値を取得
+    var name = document.form.name.value;
+    
+    alert(name);
+  }
+  
+  function setName(){
+    // テキストフィールドに値を設定
+    document.form.name.value = 'たけぞう';
+  }
+  </script>
+</body>
+</html>

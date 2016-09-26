@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>イベントオブジェクトを引数に取るイベントハンドラ</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<input type="text"/>
+<script>
+$(function(){
+  // keydownイベント時にキーコードを出力する
+  $('input[type=text] ').keydown(function(e){
+    console.log('keydown: ' + e.which);
+  });
+});
+</script>
+</body>
+</html>

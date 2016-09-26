@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Webストレージの使用例</title>
+</head>
+<body>
+  保存する内容：<input type="text" id="message"/>
+
+  <fieldset>
+    <legend>localStorage</legend>
+    <input type="button" value="保存"  onclick="localStorage.setItem('message', document.getElementById('message').value)"/>
+    <input type="button" value="取得" onclick="alert(localStorage.getItem('message'));"/>
+    <input type="button" value="削除" onclick="localStorage.removeItem('message');"/>
+    <input type="button" value="すべて削除" onclick="localStorage.clear();"/>
+  </fieldset>
+  
+  <fieldset>
+    <legend>sessionStorage</legend>
+    <input type="button" value="保存" onclick="sessionStorage.setItem('message', document.getElementById('message').value)"/>
+    <input type="button" value="取得" onclick="alert(sessionStorage.getItem('message'));"/>
+    <input type="button" value="削除" onclick="sessionStorage.removeItem('message');"/>
+    <input type="button" value="すべて削除" onclick="sessionStorage.clear();"/>
+  </fieldset>
+</body>
+</html>

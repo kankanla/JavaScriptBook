@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script>
+  function helloBottomFrame(){
+    var bottomFrame = top.frames['bottom'];
+    bottomFrame.hello();
+  }
+  
+  function moveToGoogle(){
+    var bottomFrame = top.frames['bottom'];
+    bottomFrame.location.href = 'http://www.yahoo.co.jp/';
+  }
+  </script>
+</head>
+<body>
+  右側上段のフレーム（top）
+  <form>
+    <input type="button" value="bottomフレームの関数を呼び出す" onclick="helloBottomFrame()"><br>
+    <input type="button" value="bottomフレームにYahoo!を表示" onclick="moveToGoogle()">
+  </form>
+</body>
+</html>

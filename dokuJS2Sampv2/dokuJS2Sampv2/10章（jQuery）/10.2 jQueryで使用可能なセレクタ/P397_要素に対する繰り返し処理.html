@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>要素に対する繰り返し処理</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+
+<ul id="books">
+  <li data-category="JavaScript">独習JavaScript 改訂第二版</li>
+  <li data-category="Scala">Scala逆引きレシピ</li>
+  <li data-category="Java">現場で使えるJavaライブラリ</li>
+  <li data-category="Java">Seasar2徹底入門</li>
+</ul>
+
+<script>
+$(function(){
+  var elements = $('li');
+  
+  // lengthプロパティとget()メソッドによる繰り返し処理
+  console.log('-- lengthプロパティとget()メソッドによる繰り返し処理 --')
+  for(var i = 0; i < elements.length; i++){
+    console.log(i + ': ' + $(elements.get(i)).text());
+  }
+  
+  // each()メソッドによる繰り返し処理
+  console.log('-- each()メソッドによる繰り返し処理 --')
+  $(elements).each(function(i, e){
+    console.log(i + ': ' + $(elements.get(i)).text());
+    // 3個目で処理を終了
+    if(i == 2){
+      return false;
+    }
+  });
+  
+  // map()メソッドによる繰り返し処理
+  console.log('-- map()メソッドによる繰り返し処理 --')
+  var categories = $(elements).map(function(i, e){
+    return $(e).data('category');
+  });
+  
+  console.log(categories.get().join(', '));
+  
+});
+</script>
+</body>
+</html>

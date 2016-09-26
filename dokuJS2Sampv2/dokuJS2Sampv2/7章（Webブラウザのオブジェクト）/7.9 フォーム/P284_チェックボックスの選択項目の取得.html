@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>チェックボックスの選択項目の取得</title>
+</head>
+<body>
+<form name="form">
+  プログラミング言語：
+  <input type="checkbox" name="lang" value="JavaScript">JavaScript
+  <input type="checkbox" name="lang" value="Java">Java
+  <input type="checkbox" name="lang" value="PHP">PHP
+  <br>
+  <input type="button" value="言語を表示" onclick="displayLanguage()">
+</form>
+
+<script>
+function displayLanguage(){
+  var languages = '';
+  for(var i=0;i<document.form.lang.length; i++){
+    if(document.form.lang[i].checked){
+      languages = languages + document.form.lang[i].value + ' ';
+    }
+  }
+  if(languages == ''){
+    alert('選択されていません');
+  } else {
+    alert(languages);
+  }
+}
+</script>
+</body>
+</html>

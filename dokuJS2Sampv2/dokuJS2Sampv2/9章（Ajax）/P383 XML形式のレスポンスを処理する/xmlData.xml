@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<info>
+	<messageInfo>
+		<level>info</level>
+		<message>こんにちは</message>
+	</messageInfo>
+	<messageInfo>
+		<level>info</level>
+		<message>おはよう</message>
+	</messageInfo>
+</info>

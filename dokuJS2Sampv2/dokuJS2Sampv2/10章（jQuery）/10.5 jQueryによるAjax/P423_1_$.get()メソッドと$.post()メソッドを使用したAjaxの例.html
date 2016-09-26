@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>$.get()メソッドと$.post()メソッドを使用したAjaxの例</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+
+<h1>$.get()メソッドと$.post()メソッドを使用したAjaxの例</h1>
+
+<input type="button" id="get" value="GET（パラメータなし）"/>
+<input type="button" id="get_param" value="GET（パラメータあり）"/>
+<input type="button" id="post" value="POST（パラメータあり）"/>
+
+<div id="result"></div>
+
+<script>
+$(function(){
+  // キャッシュしないようにする
+  $.ajaxSetup({ cache: false });
+
+  $('#get').click(function(){
+    // パラメータなしでGETリクエストを送信
+    $.get('contents.html', function(data){
+      $('#result').html(data);
+    });
+  });
+  
+  $('#get_param').click(function(){
+    // パラメータを文字列で指定してGETリクエストを送信
+    $.get('search.php', 'category=tech&keyword=JavaScript', function(data){
+      $('#result').html(data);
+    });
+  });
+  
+  $('#post').click(function(){
+    // パラメータをオブジェクトで指定してPOSTリクエストを送信
+    $.post('register.php', {
+      title: '独習JavaScript改訂第2版',
+      author: '高橋和也、竹添直樹、里見知宏'
+    }, function(data, status){
+      alert(status);
+    });
+  });
+});
+</script>
+
+</body>
+</html>

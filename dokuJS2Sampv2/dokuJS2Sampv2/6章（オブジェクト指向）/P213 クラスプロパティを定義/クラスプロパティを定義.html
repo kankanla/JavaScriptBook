@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+// メッセージ情報を管理するクラス
+function MessageInfo(message, priority) {
+	this.message = message;
+	this.priority = priority;
+}
+MessageInfo.PRIORITY_LOW = 'low'; // クラスプロパティの定義
+MessageInfo.PRIORITY_HIGH = 'high'; // クラスプロパティの定義
+// 処理の実行
+var msg1 = new MessageInfo('こんにちは', MessageInfo.PRIORITY_LOW);
+alert(msg1.priority);
+</script>
+</body>
+</html>

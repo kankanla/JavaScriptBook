@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<script>
+    // 検索結果の表示を行なうコールバック関数
+    function jsonpCallback(obj) {
+        var feedList = obj.feed.entry;
+        for (var i = 0; i < feedList.length; i++) {
+            var entry = feedList[i];
+            var e = document.createElement('div');
+            document.getElementById('video_list').appendChild(e);
+            replaceText(e, (i + 1) + "件目:" + entry.title.$t + "[" + entry.author.map(function(a) {return a.name.$t;}).join(", ") + "]");
+        }
+    }
+    // クリック時にJSONPで検索を行なう<script>タグを生成する
+    function click_event() {
+        var eScript = document.createElement('script');
+        eScript.src = "http://gdata.youtube.com/feeds/api/standardfeeds/JP/top_rated?alt=json-in-script&callback=jsonpCallback&max-results=10";
+        document.body.appendChild(eScript);
+    }
+    // IE/Firefoxに応じたテキストをセットする関数
+    function replaceText(element, text){
+        if(navigator.userAgent.toLowerCase().indexOf("firefox") != -1){
+            element.textContent = text;
+        } else {
+            element.innerText = text;
+        }
+    }
+</script>
+</head>
+<body>
+<input type="button" onclick="click_event();" value="検索"/>
+<div id="video_list"></div>
+</body>
+</html>

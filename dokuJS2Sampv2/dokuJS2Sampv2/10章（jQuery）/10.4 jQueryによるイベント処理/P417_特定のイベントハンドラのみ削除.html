@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>特定のイベントハンドラのみ削除</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<form>
+  <input type="submit" id="confirm" value="送信"/>
+  <a href="#" id="remove">イベントハンドラを削除</a>
+</form>
+<script>
+$(function(){
+  // イベントハンドラとして登録する関数
+  function preSubmit(){
+    return confirm('送信します。よろしいですか？');
+  }
+  
+  // preSubmit()関数をイベントハンドラとして登録
+  $('#confirm').on('click', preSubmit);
+  
+  $('#remove').click(function(){
+    // preSubmit()関数をイベントハンドラから削除
+    $('#confirm').off('click', preSubmit);
+    return false;
+  });
+});
+</script>
+</body>
+</html>

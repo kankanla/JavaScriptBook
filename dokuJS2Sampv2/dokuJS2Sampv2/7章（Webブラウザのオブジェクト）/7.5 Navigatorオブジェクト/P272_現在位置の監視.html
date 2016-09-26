@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>現在位置の監視</title>
+</head>
+<body>
+  <input type="button" value="監視を開始" onclick="startWatching()">
+  <input type="button" value="監視を停止" onclick="stopWatching()">
+  <script>
+  var watchId;
+  
+  function startWatching(){
+    // 位置情報の監視を開始
+    watchId = navigator.geolocation.watchPosition(function(pos){
+      var latitude  = pos.coords.latitude;
+      var longitude = pos.coords.longitude;
+      console.log('現在位置：' + latitude + ', ' + longitude);
+    });
+  }
+  
+  function stopWatching(){
+    // 位置情報の監視を解除
+    navigator.geolocation.clearWatch(watchId);
+  }
+  </script>
+</body>
+</html>

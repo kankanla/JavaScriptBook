@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>要素にデータを保存する</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+
+<h1>要素にデータを保存する</h1>
+
+<div id="test">この要素にデータを設定します</div>
+
+<br>
+
+<fieldset>
+  <legend>要素へのデータの保存、取得、削除</legend>
+  <input type="button" value="データを設定" id="set_data">
+  <input type="button" value="データを取得" id="get_data">
+  <input type="button" value="データを削除" id="remove_data">
+</fieldset>
+
+<fieldset>
+  <legend>jQueryオブジェクトのメソッドを使用</legend>
+  <input type="button" value="データを設定" id="jq_set_data">
+  <input type="button" value="データを取得" id="jq_get_data">
+  <input type="button" value="データを削除" id="jq_remove_data">
+</fieldset>
+
+
+<script>
+$(function(){
+  $('#set_data').click(function(){
+    var e = $('#test').get(0);
+    $.data(e, 'status', 'active');
+  });
+  
+  $('#get_data').click(function(){
+    var e = $('#test').get(0);
+    alert($.data(e, 'status'));
+  });
+  
+  $('#remove_data').click(function(){
+    var e = $('#test').get(0);
+    $.removeData(e, 'status');
+  });
+  
+  $('#jq_set_data').click(function(){
+    $('#test').data('status', 'active');
+  });
+  
+  $('#jq_get_data').click(function(){
+    alert($('#test').data('status'));
+  });
+  
+  $('#jq_remove_data').click(function(){
+    $('#test').removeData('status');
+  });  
+});
+</script>
+
+</body>
+</html>

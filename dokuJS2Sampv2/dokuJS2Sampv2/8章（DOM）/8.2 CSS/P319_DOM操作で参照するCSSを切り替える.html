@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h1>時間によってCSSを切り替えるサンプル</h1>
+  </body>
+  
+  <script>
+    // 現在時刻を取得
+    var hour = new Date().getHours();
+    // link要素を作成
+    var link = document.createElement('link');
+    // 属性値を設定
+    link.setAttribute('rel', 'stylesheet');
+    if(hour < 12){
+      link.setAttribute('href', 'morning.css');
+    } else if(hour < 18){
+      link.setAttribute('href', 'evening.css');
+    } else {
+      link.setAttribute('href', 'night.css');
+    }
+    // head要素の末尾に作成したlink要素を追加
+    var head = document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</html>

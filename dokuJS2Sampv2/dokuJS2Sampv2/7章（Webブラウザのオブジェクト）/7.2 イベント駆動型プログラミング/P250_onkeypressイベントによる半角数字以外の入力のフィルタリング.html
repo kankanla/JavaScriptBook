@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>onkeypressイベントによる半角数字以外の入力のフィルタリング</title>
+  <script>
+  function filter(event){
+    var keyCode;
+    if(event.keyCode){
+      keyCode = event.keyCode; // Internet Explorerの場合
+    } else {
+      keyCode = event.charCode; // Internet Explorer以外の場合
+    }
+    // 0～9のみ入力可
+    if(keyCode >= 48 && keyCode <= 58){
+      return true;
+    }
+    // 0～9以外の文字は入力不可
+    return false;
+  }
+  </script>
+</head>
+<body>
+<form>
+  <input type="text" onkeypress="return filter(event)">
+</form>
+</body>
+</html>

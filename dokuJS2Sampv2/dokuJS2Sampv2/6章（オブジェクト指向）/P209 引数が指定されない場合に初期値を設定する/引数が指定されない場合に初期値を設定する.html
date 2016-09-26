@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+// ユーザ情報を管理するクラス
+function UserInfo(userId) {
+	if (userId == undefined) {
+		userId = 'U00000'; // 初期値を与える
+	}
+	this.userId = userId;
+}
+// 処理の実行
+var usr1 = new UserInfo();
+alert(usr1.userId);
+
+
+
+
+</script>
+</body>
+</html>

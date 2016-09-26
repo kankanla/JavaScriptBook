@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+var a = 1; // 関数の外で変数aを定義（グローバル定数）
+function func() {
+	var a = 'inner'; // 関数内でも同名で変数を定義
+	alert('withなし:' + a); // 関数内の変数が優先
+	with (window) { // 関数の外で定義した変数を優先にする
+		alert('withあり:' + a); // withが優先になる
+	}
+}
+func();
+</script>
+</body>
+</html>

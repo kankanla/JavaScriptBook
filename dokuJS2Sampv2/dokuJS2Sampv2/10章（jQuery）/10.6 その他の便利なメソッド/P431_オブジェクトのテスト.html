@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>オブジェクトのテスト</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+
+<h2>オブジェクトのテスト</h2>
+
+<input type="button" id="object_test" value="オブジェクトの種類を判定"/>
+<input type="button" id="object_type" value="オブジェクトの種類を取得"/>
+
+<script>
+$(function(){
+  $('#object_test').click(function(){
+    // $.isXxxx()メソッド
+    console.log('$.isArray([1, 2]) = '          + $.isArray([1, 2]));          // => true
+    console.log('$.isEmptyObject({}) = '        + $.isEmptyObject({}));        // => true
+    console.log('$.isFunction(function(){}) = ' + $.isFunction(function(){})); // => true
+    console.log('$.isNumeric(1) = '             + $.isNumeric(1));             // => true
+    console.log('$.isPlainObject("str") = '     + $.isPlainObject('str'));     // => false
+    console.log('$.isWindow(window) = '         + $.isWindow(window));         // => true
+    console.log('$.isXMLDoc(document) = '       + $.isXMLDoc(document));       // => false
+  });
+  
+  $('#object_type').click(function(){
+    // $.type()メソッド
+    console.log($.type(undefined));    // => 'undefined'
+    console.log($.type(null));         // => 'null'
+    console.log($.type(1));            // => 'number'
+    console.log($.type('str'));        // => 'string'
+    console.log($.type(true));         // => 'boolean'
+    console.log($.type([1, 2]));       // => 'array'
+    console.log($.type(function(){})); // => 'function'
+    console.log($.type(new Date()));   // => 'date'
+    console.log($.type(/abc/));        // => 'regexp'
+    console.log($.type(document));     // => 上記以外の場合は'object'
+  });
+});
+</script>
+
+</body>
+</html>

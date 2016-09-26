@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>コンテンツをAjaxでロードする</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+
+<h1>コンテンツをAjaxでロードする</h1>
+
+<input type="button" id="load_file" value="コンテンツをAjaxでロード"/>
+<input type="button" id="load_part" value="コンテンツの一部をAjaxで取得"/>
+
+<div id="result"></div>
+
+<script>
+$(function(){
+  // キャッシュしないようにする
+  $.ajaxSetup({ cache: false });
+
+  $('#load_file').click(function(){
+    // divタグにAjaxで取得したHTMLを挿入
+    $('#result').load('contents.html');
+  });
+  
+  $('#load_part').click(function(){
+    // contents.html内のid属性がmessageである要素の内容を挿入
+    $('#result').load('contents.html #message');
+  });
+});
+</script>
+
+</body>
+</html>

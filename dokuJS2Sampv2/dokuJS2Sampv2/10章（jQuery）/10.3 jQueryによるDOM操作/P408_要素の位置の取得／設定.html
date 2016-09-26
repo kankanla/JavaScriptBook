@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>要素の位置の取得／設定</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<h1>要素の位置の取得／設定</h1>
+
+<fieldset>
+  <legend>要素の位置の取得／設定</legend>
+  <input type="button" id="get_position" value="要素の位置を取得"/>
+  <input type="button" id="set_position" value="要素の位置を設定"/>
+  <div id="box" style="background-color: #eee; padding: 4px; margin: 10px;">この要素の位置を取得・設定します</div>
+</fieldset>
+
+<fieldset>
+  <legend>スクロールの位置の取得／設定</legend>
+  <input type="button" id="get_scroll" value="スクロール位置を取得"/>
+  <input type="button" id="set_scroll" value="スクロール位置を設定"/>
+</fieldset>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<input type="button" id="scroll_to" value="h1要素にスクロール"/>
+
+<script>
+$(function(){
+  $('#get_position').click(function(){
+    // 要素の画面左上からの位置を取得
+    var offset = $('#box').offset();
+    console.log(offset.top);
+    console.log(offset.left);
+  });
+  
+  $('#set_position').click(function(){
+    // 要素の画面左上からの位置を設定
+    $('#box').offset({ top: 0, left: 0 });
+  });
+  
+  $('#get_scroll').click(function(){
+    // ウィンドウの縦方向のスクロール位置を取得
+    var top = $('body').scrollTop();
+    // ウィンドウの横方向のスクロール位置を取得
+    var left = $('body').scrollLeft();
+    
+    console.log(top + ', ' + left);
+  });
+  
+  $('#set_scroll').click(function(){
+    // ウィンドウの縦方向のスクロール位置を設定
+    $('body').scrollTop(200);
+    // ウィンドウの横方向のスクロール位置を設定
+    $('body').scrollLeft(100);
+  });
+  
+  $('#scroll_to').click(function(){
+    // h1要素の位置にスクロール
+    $('body').scrollTop($('h1').offset().top);
+  });
+});
+</script>
+</body>
+</html>

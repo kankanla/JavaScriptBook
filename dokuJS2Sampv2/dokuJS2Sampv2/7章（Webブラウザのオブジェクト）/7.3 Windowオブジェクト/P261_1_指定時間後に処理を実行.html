@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>指定時間後に処理を実行</title>
+</head>
+<body>
+  <form name="form">
+    <input type="button" value="5秒後にダイアログを表示" onclick="openDialog()"/>
+  </form>
+  
+  <script>
+  function openDialog(){
+    setTimeout(function(){ alert('Hello!!'); }, 5000);
+  }
+  </script>
+</body>
+</html>

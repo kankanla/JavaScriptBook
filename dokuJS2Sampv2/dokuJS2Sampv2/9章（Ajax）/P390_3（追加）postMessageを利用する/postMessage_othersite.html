@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>
+window.addEventListener('message', function(event) {
+    if (event.origin !== 'http://localhost:1337') {
+        alert('想定外のオリジンのため中止');
+        return;
+    }
+    var arg = JSON.parse(event.data); // messageをparseする
+    alert("幅：" + arg.width + " 高さ：" + arg.height);
+}, false);
+</script>
+</head>
+<body>
+<div id="output"></div>
+postMessageを受け付ける別サーバのページです。
+</body>
+</html>

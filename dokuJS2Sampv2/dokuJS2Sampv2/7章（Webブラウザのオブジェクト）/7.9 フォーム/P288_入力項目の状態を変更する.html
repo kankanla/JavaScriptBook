@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>入力項目の状態を変更する</title>
+</head>
+<body>
+<form name="form">
+  <input type="text" name="userId">
+  <input type="button" value="disabled切り替え" onclick="toggleDisabled()">
+  <input type="button" value="readOnly切り替え" onclick="toggleReadOnly()">
+</form>
+<script>
+function toggleDisabled(){
+  if(document.form.userId.disabled == false){
+    // userIdフィールドを無効にする
+    document.form.userId.disabled = true;
+  } else {
+    // userIdフィールドを有効にする
+    document.form.userId.disabled = false;
+  }
+}
+
+function toggleReadOnly(){
+  if(document.form.userId.readOnly == false){
+    // userIdフィールドを無効にする
+    document.form.userId.readOnly = true;
+  } else {
+    // userIdフィールドを有効にする
+    document.form.userId.readOnly = false;
+  }
+}
+
+</script>
+</body>
+</html>

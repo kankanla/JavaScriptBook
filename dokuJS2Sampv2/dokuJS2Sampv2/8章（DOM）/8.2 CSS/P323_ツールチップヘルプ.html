@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>ツールチップヘルプ</title>
+    <style type="text/css">
+      span.link {
+        color: blue;
+        border-bottom: 1px solid blue;
+        cursor: pointer;
+      }
+      
+      div.tooltip {
+        display: none;
+        background-color: blue;
+        color: white;
+        padding: 2px;
+      }
+    </style>
+    <script>
+      /** ツールチップを表示*/
+      function showTooltip(e, id){
+        var tooltip = document.getElementById(id);
+        tooltip.style.position = 'absolute';
+        tooltip.style.top = e.offsetTop + 20;
+        tooltip.style.left = e.offsetLeft + 20;
+        tooltip.style.display = 'block';
+      }
+
+      /** ツールチップを隠す*/
+      function hideTooltip(id){
+        var tooltip = document.getElementById(id);
+        tooltip.style.display = 'none';
+      }
+    </script>
+  </head>
+  <body>
+    <p>
+      本書のサンプルコードは<span class="link"
+        onmouseover="showTooltip(this, 'tooltip')"
+        onmouseout="hideTooltip('tooltip')">主なWebブラウザ</span>で動作します。
+    </p>
+    <div id="tooltip" class="tooltip">
+      主要なブラウザとは以下のものを指します：
+      <ul>
+        <li>Internet Explorer</li>
+        <li>Firefox</li>
+        <li>Chrome</li>
+      </ul>
+    </div>
+  </body>
+</html>

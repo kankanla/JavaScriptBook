@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>onloadイベントを利用したイベントリスナの登録</title>
+  <script>
+  // クリック時に呼び出される関数
+  function helloWorld(){
+    alert('Hello World!');
+  }
+  
+  // onclickイベントにイベントリスナを登録
+  window.onload = function(){
+    var button = document.getElementById('button');
+    button.onclick = helloWorld;
+  }
+  </script>
+</head>
+<body>
+  <input type="button" id="button" value="ボタン"/>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ノードを削除する</title>
+</head>
+<body>
+<p onclick="removeElement(this)">
+クリックすると削除されます
+</p>
+
+<script>
+function removeElement(element){
+  element.parentNode.removeChild(element);
+}
+</script>
+</body>
+</html>

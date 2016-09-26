@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DOM APIを使用してHTMLのツリーを探索</title>
+  <script>
+  function search(){
+    // <html>要素を取得
+    var html = document.documentElement;
+    for(var i=0;i<html.childNodes.length;i++){
+      // <body>要素を取得
+      if(html.childNodes[i].nodeName == 'BODY'){
+        var body = html.childNodes[i];
+        for(var j=0;j<body.childNodes.length;j++){
+          // <h1>要素を取得
+          if(body.childNodes[j].nodeName == 'H1'){
+            var h1 = body.childNodes[j];
+            // <h1>要素配下のテキストを表示
+            alert(h1.childNodes[0].nodeValue);
+            break;
+          }
+        }
+        break;
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+  <h1>サンプル</h1>
+  <p id="paragraph1">
+    <a href="http://www.mozilla.jp/firefox/">Firefox</a>
+    はオープンソースのWebブラウザです。
+  </p>
+  <input type="button" value="DOM APIで検索" onclick="search()">
+</body>
+</html>

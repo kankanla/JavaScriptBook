@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>セレクトボックスの選択項目を取得</title>
+</head>
+<body>
+<form name="form">
+  独習シリーズ：<br>
+  <select name="books" size="5" multiple>
+    <option value="0">独習JavaScript</option>
+    <option value="1">独習Java</option>
+    <option value="2">独習PHP</option>
+  </select>
+  <br>
+  <input type="button" value="選択された書籍を表示" onclick="displaySelected()">
+  <input type="button" value="項目を追加" onclick="addOption()">
+  
+</form>
+
+<script>
+function displaySelected(){
+  var options = document.form.books.options;
+  for(var i=0;i<document.form.books.options .length; i++){
+    if(document.form.books.options[i].selected){
+      alert(document.form.books.options[i].text +
+       '(' + document.form.books.options[i].value + ')が選択されています');
+    }
+  }
+}
+
+function addOption(){
+  // セレクトボックスの末尾に新しい項目を追加
+  var options = document.form.books.options;
+  options[options.length] = new Option('独習C', '3');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>複数のセレクタの指定</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<h1>複数のセレクタの指定</h1>
+
+<div class="description">div要素のコンテンツ</div>
+
+<div>
+  <span class="notation">span要素のコンテンツ</span>
+</div>
+
+<script>
+$(function(){
+  // class属性がdescriptionのdiv要素とnotationのspan要素
+  $('div.description, span.notation').each(function(i, e){
+    console.log($(e).text());
+  });
+});
+</script>
+</body>
+</html>

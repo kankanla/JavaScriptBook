@@ -1,0 +1,9 @@
+﻿[
+	{
+		"level" : "info",
+		"message" : (function() {
+				alert('eval()で関数が実行されます！！');
+				return 'ダミー'
+		})()
+	}
+]

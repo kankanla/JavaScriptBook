@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ドキュメントへの書き込み</title>
+</head>
+<body>
+<h1>document.write()で文字列の出力</h1>
+<p>
+  現在の日時は
+  <script>
+    document.write(new Date().toLocaleString());
+  </script>
+  です。
+</p>
+
+<h1>document.write()でHTMLを出力</h1>
+<p>
+  現在の日時は
+  <script>
+    document.write('<ins>' + new Date().toLocaleString() + '</ins>');
+  </script>
+  です。
+</p>
+</body>
+</html>

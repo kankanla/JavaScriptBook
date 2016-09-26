@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<title>sample</title>
+</head>
+<body>
+<script>
+function generateSequenceClass(iniValue) {
+  var val = iniValue; // valは内部変数（関数の外からは見えない）
+  return {
+    callCount : 0, // 外部から直接参照できる変数
+    inc : function(incValue) { val += incValue; this.callCount += 1; }, 
+    getValue : function() { return val; }
+  };
+}
+var seq = generateSequenceClass(1); // val=1
+seq.inc(5); // val=6
+seq.inc(3); // val=9
+alert("seq.getValue()は、" + seq.getValue());
+alert("seq.callCountは、" + seq.callCount);
+alert("seq.valは、" + seq.val); // 参照できずにundefinedとなる。
+</script>
+</body>
+</html>

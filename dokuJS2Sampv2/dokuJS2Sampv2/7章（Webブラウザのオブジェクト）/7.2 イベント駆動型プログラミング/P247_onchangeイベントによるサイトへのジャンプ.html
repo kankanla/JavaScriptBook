@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>onchangeイベントによるサイトへのジャンプ</title>
+</head>
+<body>
+<form>
+<select onchange="location.href = this.value">
+  <option>選択してください</option>
+  <option value="http://www.google.co.jp/">Google</option>
+  <option value="http://www.yahoo.co.jp/">Yahoo</option>
+</select>
+</form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>セレクトボックスの値を取得</title>
+  <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+プラットフォーム（単一選択）：<br>
+<select name="platform" id="platform">
+  <option value="Windows">Windows</option>
+  <option value="Mac">Mac</option>
+  <option value="Linux">Linux</option>
+</select><br>
+ブラウザ（複数選択可）：<br>
+<select name="browser" id="browser" multiple size="5">
+  <option value="Internet Explorer">Internet Explorer</option>
+  <option value="Chrome">Chrome</option>
+  <option value="Firefox">Firefox</option>
+</select><br>
+<input type="button" id="button" value="クリック">
+<script>
+$(function(){
+  $('#button').click(function(){
+    // セレクトボックス（単一選択）の値を取得
+    var platform = $('#platform').val();
+    var message = 'プラットフォーム:' + platform + '\n';
+    // セレクトボックス（複数選択）の値を取得
+    var browsers = $('#browser').val();
+    if(browsers == null){
+      message = message + 'ブラウザが選択されていません。';
+    } else {
+      for(var i = 0; i < browsers.length; i++){
+        message = message + 'ブラウザ:' + browsers[i] + '\n';
+      }
+    }
+    alert(message);
+  });
+});
+</script>
+</body>
+</html>

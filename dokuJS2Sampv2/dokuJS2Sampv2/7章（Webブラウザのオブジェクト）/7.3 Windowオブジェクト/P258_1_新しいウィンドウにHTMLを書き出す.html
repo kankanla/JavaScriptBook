@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>新しいウィンドウにHTMLを書き出す</title>
+</head>
+<body>
+  <script>
+  function openWindow(){
+    // URLを指定せずに新しいウィンドウを開く
+    var w = open('', 'subwindow', 'width=300, height=150');
+    // 新しいウィンドウにHTMLを書き出す
+    w.document.write('<h1>テスト</h1>');
+    // 書き出し終わったら必ずドキュメントをcloseする
+    w.document.close();
+  }
+  </script>
+  <input type="button" value="ウィンドウを開く" onclick="openWindow()"/>
+</body>
+</html>
