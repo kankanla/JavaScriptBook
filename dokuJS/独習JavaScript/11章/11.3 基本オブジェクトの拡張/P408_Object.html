@@ -1,0 +1,52 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Object</title>
+  <script src="../prototype-1.6.0.2.js" type="text/javascript"></script>
+  <style type="text/css">
+  pre {
+    border: 1px solid silver;
+    padding: 4px;
+  }
+  </style>
+</head>
+<body>
+<h1>Object</h1>
+
+<h2>データの型チェック</h2>
+
+<pre>
+// 文字列かどうかを判定
+Object.isString('文字列') // => true
+</pre>
+<script type="text/javascript">
+document.write('実行結果=' + Object.isString('文字列'));
+</script>
+
+<pre>
+// 配列かどうかを判定
+Object.isArray([1, 2, 3]) // => true
+</pre>
+<script type="text/javascript">
+document.write('実行結果=' + Object.isArray([1, 2, 3]));
+</script>
+
+<h2>JavaScriptオブジェクトからJSONへの変換</h2>
+
+<pre>
+var obj = new Object();
+obj.name = 'Naoki Takezoe';
+obj.age = 29;
+
+Object.toJSON(obj); // => {"name": "Naoki Takezoe", "age": 29}
+</pre>
+<script type="text/javascript">
+var obj = new Object();
+obj.name = 'Naoki Takezoe';
+obj.age = 29;
+
+document.write('実行結果=' + Object.toJSON(obj));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Try.these()関数を利用したクロスブラウザ処理</title>
+  <script src="../prototype-1.6.0.2.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    function regsiterEventListener(element, type, listener){
+      return Try.these(
+        function(){ element.addEventListener(type, listener, false); },
+        function(){ element.attachEvent('on' + type, listener); }
+      );
+    }
+  </script>
+</head>
+<body>
+<h1>Try.these()関数を利用したクロスブラウザ処理</h1>
+<p>
+  このサンプルはInternet ExplorerでもFirefoxでも動作します。
+</p>
+
+<input type="button" id="button" value="クリック">
+
+<script type="text/javascript">
+// イベントリスナ
+function clicked(event){
+  alert('Try.these()関数を利用したクロスブラウザ処理の例です。');
+}
+
+// 要素を取得
+var element = document.getElementById('button');
+// Elementオブジェクトにリスナを登録
+regsiterEventListener(element, 'click', clicked);
+</script>
+</body>
+</html>

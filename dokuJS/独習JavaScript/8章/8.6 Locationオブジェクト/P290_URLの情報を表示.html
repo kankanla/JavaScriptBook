@@ -1,0 +1,21 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>URLの情報を表示</title>
+</head>
+<body>
+  <input type="button" value="URLの情報を表示" onclick="showUrlInfo()">
+  <script type="text/javascript">
+  function showUrlInfo(){
+    alert('href: ' + location.href + '\n' +
+          'protocol: ' + location.protocol + '\n' +
+          'host: ' + location.host + '\n' +
+          'hostname: ' + location.hostname + '\n' +
+          'port: ' + location.port + '\n' +
+          'pathname: ' + location.pathname + '\n' +
+          'search: ' + location.search + '\n' +
+          'hash: ' + location.hash + '\n');
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>String</title>
+  <script src="../prototype-1.6.0.2.js" type="text/javascript"></script>
+  <style type="text/css">
+  pre {
+    border: 1px solid silver;
+    padding: 4px;
+  }
+  </style>
+</head>
+<body>
+<h1>String</h1>
+
+<h2>文字列の検索</h2>
+
+<pre>
+var value = '独習JavaScript';
+
+// 文字列が'独習'ではじまっているか？
+value.startsWith('独習') // => true
+</pre>
+<script type="text/javascript">
+var value = '独習JavaScript';
+
+document.write('実行結果=' + value.startsWith('独習'));
+</script>
+
+<pre>
+// 文字列が'JavaScript'で終わっているか？
+value.endsWith('JavaScript') // => true
+</pre>
+<script type="text/javascript">
+document.write('実行結果=' + value.endsWith('JavaScript'));
+</script>
+
+<pre>
+// 文字列に'Java'が含まれているか？
+value.include('Java') // => true
+</pre>
+<script type="text/javascript">
+document.write('実行結果=' + value.include('Java'));
+</script>
+
+<h2>正規表現</h2>
+
+<pre>
+// 空白をカンマに置換（最初の1回だけ置換）
+'JavaScript Perl PHP'.sub(/\s+/, ', ') // => 'JavaScript, Perl PHP'
+</pre>
+<script type="text/javascript">
+document.write('実行結果=' + 'JavaScript Perl PHP'.sub(/\s+/, ', '));
+</script>
+
+<pre>
+// 空白をカンマに置換（2回目まで置換）
+'JavaScript Perl PHP'.sub(/\s+/, ', ', 2) // => 'JavaScript, Perl, PHP'
+</pre>
+<script type="text/javascript">
+document.write('実行結果=' + 'JavaScript Perl PHP'.sub(/\s+/, ', ', 2));
+</script>
+
+<pre>
+// 空白をカンマに置換（すべて置換）
+'JavaScript Perl PHP'.gsub(/\s+/, ', ') // => 'JavaScript, Perl, PHP'
+</pre>
+<script type="text/javascript">
+document.write('実行結果=' + 'JavaScript Perl PHP'.gsub(/\s+/, ', '));
+</script>
+
+<pre>
+// scan()メソッドの利用例
+'JavaScript Perl PHP'.scan(/([A-Za-z]+)/, function(match){
+  // JavaScript、Perl、PHPの順にダイアログで表示します
+  alert(match[0]);
+});
+</pre>
+
+<input type="button" value="実行" onclick="testScan()">
+
+<script type="text/javascript">
+function testScan(){
+  'JavaScript Perl PHP'.scan(/([A-Za-z]+)/, function(match){
+    // JavaScript、Perl、PHPの順にダイアログで表示します
+    alert(match[0]);
+  });
+}
+</script>
+
+<h2>文字列の変換</h2>
+
+<pre>
+// キャメライズ
+'background-color'.camelize() // => 'backgroundColor'
+</pre>
+<script type="text/javascript">
+document.write('実行結果=' + 'background-color'.camelize());
+</script>
+
+<pre>
+// キャピタライズ
+'JavaScript'.capitalize() // => 'Javascript'
+</pre>
+<script type="text/javascript">
+document.write('実行結果=' + 'JavaScript'.capitalize());
+</script>
+
+<pre>
+// アンダースコアをハイフンに変換
+'background_color'.dasherize() // => 'background-color'
+</pre>
+<script type="text/javascript">
+document.write('実行結果=' + 'background_color'.dasherize());
+</script>
+
+<pre>
+// ハイフンをアンダースコアに変換
+'background-color'.underscore() // => 'background_color'
+</pre>
+<script type="text/javascript">
+document.write('実行結果=' + 'background-color'.underscore());
+</script>
+
+<h2>特殊文字のエスケープ</h2>
+
+<pre>
+// HTMLタグをエスケープ
+'&lt;b&gt;bold&lt;/b&gt;'.escapeHTML() // => '&lt;b&gt;bold&lt;/b&gt;'
+</pre>
+<script type="text/javascript">
+document.write('実行結果=' + '<b>bold</b>'.escapeHTML());
+</script>
+
+<pre>
+// エスケープした文字列を逆変換
+'&amp;lt;b&amp;gt;bold&amp;lt;/b&amp;gt;'.unescapeHTML() // => '<b>bold</b>'
+</pre>
+<script type="text/javascript">
+document.write('実行結果=' + '&lt;b&gt;bold&lt;/b&gt;'.unescapeHTML());
+</script>
+
+<pre>
+// 文字列からHTMLタグを削除
+'&lt;b&gt;bold&lt;/b&gt;'.stripTags() // => 'bold'
+</pre>
+<script type="text/javascript">
+document.write('実行結果=' + '<b>bold</b>'.stripTags());
+</script>
+
+<h2>テンプレート</h2>
+
+<pre>
+// 文字列テンプレートを作成
+var template = new Template('商品名は#{name}、価格は#{price}円です。');
+// テンプレートに当てはめるデータ
+var data = {name: 'カップラーメン', price: '130'};
+
+// テンプレートを評価
+template.evaluate(data) // => '商品名はカップラーメン、価格は130円です。'
+</pre>
+
+<script type="text/javascript">
+// 文字列テンプレートを作成
+var template = new Template('商品名は#{name}、価格は#{price}円です。');
+// テンプレートに当てはめるデータ
+var data = {name: 'カップラーメン', price: '130'};
+
+// テンプレートを評価
+document.write('実行結果=' + template.evaluate(data)); // => '商品名はカップラーメン、価格は130円です。'
+</script>
+
+<pre>
+// テンプレートを通常の文字列として作成
+var template = '商品名は#{name}、価格は#{price}円です。';
+// テンプレートに当てはめるデータ
+var data = {name: 'カップラーメン', price: '130'};
+
+// テンプレートを評価
+template.interpolate(data) // => '商品名はカップラーメン、価格は130円です。'
+</pre>
+
+<script type="text/javascript">
+// テンプレートを通常の文字列として作成
+var template = '商品名は#{name}、価格は#{price}円です。';
+// テンプレートに当てはめるデータ
+var data = {name: 'カップラーメン', price: '130'};
+
+// テンプレートを評価
+document.write('実行結果=' + template.interpolate(data)); // => '商品名はカップラーメン、価格は130円です。'
+</script>
+
+<h2>JSON文字列からのJavaScriptオブジェクトの生成</h2>
+
+<pre>
+// JSON形式の文字列をJavaScriptオブジェクトに変換
+var json = '{name: "Naoki Takezoe", age: 29}';
+var obj = json.evalJSON();
+
+obj.name // => 'Naoki Takezoe'
+obj.age // => 29
+</pre>
+
+<script type="text/javascript">
+// JSON形式の文字列をJavaScriptオブジェクトに変換
+var json = '{name: "Naoki Takezoe", age: 29}';
+var obj = json.evalJSON();
+
+// テンプレートを評価
+document.write('実行結果 obj.name=' + obj.name + ', obj.age=' + obj.age);
+</script>
+
+</body>
+</html>

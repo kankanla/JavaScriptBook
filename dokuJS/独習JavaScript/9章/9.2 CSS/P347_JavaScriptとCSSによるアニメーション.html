@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>JavaScriptとCSSによるアニメーション</title>
+    <script type="text/javascript">
+      function startCar(){
+        // 最初の位置
+        var left = 0;
+        // 終了位置
+        var to = 500;
+        var timerId = setInterval(function(){
+          if(left == to){
+            // アニメーションを終了
+            clearInterval(timerId);
+          } else {
+            // img要素を5pxずつ右へ移動
+            left = left + 5;
+            var img = document.getElementById('car');
+            img.style.left = left + 'px';
+          }
+        }, 10);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="スタート" onclick="startCar()">
+    <!-- 車の画像-->
+    <img id="car" src="car.gif"
+      style="position: absolute; left: 0px; top: 40px;">
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>要素の内容を変更する</title>
+</head>
+<body>
+
+<h1>要素内のテキストを書き換える</h1>
+
+<p onclick="replaceText(this, '置換後のテキスト')">
+  元のテキスト
+</p>
+
+<script type="text/javascript">
+function replaceText(element, text){
+  if(navigator.userAgent.toLowerCase().indexOf("firefox") != -1){
+    // Firefoxの場合
+    element.textContent = text;
+  } else {
+    // Firefox以外の場合
+    element.innerText = text;
+  }
+}
+</script>
+
+
+<h1>innerHTMLプロパティによるHTMLの挿入</h1>
+
+<p onclick="this.innerHTML = '<ins>置換後のテキスト</ins>'">
+元のテキスト
+</p>
+
+
+<h1>属性値の変更</h1>
+
+<a id="link" href="http://www.google.co.jp/">Google</a>
+<input type="button" value="クリック" onclick="changeLinkTarget()"/>
+
+<script type="text/javascript">
+function changeLinkTarget(){
+  var link = document.getElementById('link');
+  link.setAttribute('href', 'http://www.yahoo.co.jp/');
+}
+</script>
+
+</body>
+</html>

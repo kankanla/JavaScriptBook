@@ -1,0 +1,14 @@
+var obj = new Array();
+obj.prop1 = 123;
+
+// objに追加したプロパティ'prop1'をチェック
+var result1 = obj.hasOwnProperty('prop1');
+document.write('prop1 : ' + result1 + '<br>');
+
+// Arrayに定義されているプロパティ'length'をチェック
+var result2 = obj.hasOwnProperty('length');
+document.write('length : ' + result2 + '<br>');
+
+// 参照専用のprototypeプロパティ'constructor'をチェック
+var result3 = obj.hasOwnProperty('constructor');
+document.write('constructor : ' + result3 + '<br>');

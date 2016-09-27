@@ -1,0 +1,26 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Internet Explorerのイベントモデル</title>
+</head>
+<body>
+<h1>Internet Explorerのイベントモデル</h1>
+<p>
+  このサンプルはInternet Explorerでのみ動作します。
+</p>
+
+<input type="button" id="button" value="Internet Explorerのイベントモデル">
+
+<script type="text/javascript">
+// イベントリスナ
+function clicked(event){
+  alert('Internet Explorerのイベントモデル');
+}
+
+// 要素を取得
+var element = document.getElementById('button');
+// イベントリスナを登録
+element.attachEvent('onclick', clicked);
+</script>
+</body>
+</html>

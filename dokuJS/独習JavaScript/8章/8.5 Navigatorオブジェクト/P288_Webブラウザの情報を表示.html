@@ -1,0 +1,19 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>ブラウザの情報を表示</title>
+</head>
+<body>
+  <input type="button" value="ブラウザの情報を表示" onclick="showBrowserInfo()">
+  <script type="text/javascript">
+  function showBrowserInfo(){
+    alert('appCodeName: ' + navigator.appCodeName + '\n' +
+          'appName: ' + navigator.appName + '\n' +
+          'appVersion: ' + navigator.appVersion + '\n' +
+          'userAgenet: ' + navigator.userAgent + '\n' +
+          'language: ' + navigator.language + '\n' +
+          'platform: ' + navigator.platform);
+  }
+  </script>
+</body>
+</html>

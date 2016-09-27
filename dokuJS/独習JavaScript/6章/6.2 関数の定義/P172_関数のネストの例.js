@@ -1,0 +1,12 @@
+// ‰~‚Ì‘ÌÏ‚ğ‹‚ß‚éŠÖ”
+function calcCone(radius, height) {
+  var dimension = calcCircle(radius); // ŠÖ”‚Ì“à•”‚Å’è‹`‚µ‚½ŠÖ”‚ğŒÄ‚Ño‚·‡@
+  // ’ê–Ê‚Ì–ÊÏ‚ğ‹‚ß‚éŠÖ”
+  function calcCircle(r) {
+    var circle = r * r * Math.PI; //‡A
+    return circle;
+  }
+  // ‘ÌÏ= 1/3 * ’ê–ÊÏ* ‚‚³
+  return dimension * height / 3;
+}
+alert(calcCone(10, 10));

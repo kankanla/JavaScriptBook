@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>クラスの定義</title>
+  <script src="../prototype-1.6.0.2.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var Person = Class.create({
+      // コンストラクタ
+      initialize: function(name){
+        this.name = name;
+      },
+      // メソッド
+      message: function(message){
+        return message + this.name;
+      }
+    });
+    
+    Person.hello = function(person){
+      alert(person.message('Hello, '));
+    };
+    
+    function showName(name){
+      var person = new Person(name);
+      alert(person.message('Hello, '));
+    }
+  </script>
+</head>
+<body>
+<form>
+  お名前：<input type="text" id="name"><br>
+  <input type="button" value="クリック" onclick="showName($F('name'))">
+  <input type="button" value="静的メソッド" onclick="Person.hello(new Person($F('name')))">
+</form>
+</body>
+</html>

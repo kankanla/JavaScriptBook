@@ -1,0 +1,29 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Form</title>
+  <script src="../prototype-1.6.0.2.js" type="text/javascript"></script>
+  <style type="text/css">
+  pre {
+    border: 1px solid silver;
+    padding: 4px;
+  }
+  </style>
+</head>
+<body>
+<h1>Form</h1>
+
+<h2>フォームの二重送信の防止</h2>
+
+<form id="form">
+  <input type="text" name="name">
+  <input type="button" value="送信">
+</form>
+
+<input type="button" value="フォームを無効にする" onclick="$('form').disable()">
+<input type="button" value="フォームを有効にする" onclick="$('form').enable()">
+
+
+
+</body>
+</html>

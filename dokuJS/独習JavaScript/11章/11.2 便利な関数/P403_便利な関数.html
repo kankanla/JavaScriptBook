@@ -1,0 +1,33 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>便利な関数</title>
+  <script src="../prototype-1.6.0.2.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>便利な関数</h1>
+  
+  <form>
+    お名前をどうぞ：
+    <input type="text" id="name"><br>
+    <br>
+    <input type="button" value="$()関数" onclick="alert($('name').value)">
+    <input type="button" value="$$()関数" onclick="alert($$('input[type=\'text\']')[0].value)">
+    <input type="button" value="$F()関数" onclick="alert($F('name'))">
+    <input type="button" value="$A()関数" onclick="$A($$('input[type=\'button\']')).each(function(e){ alert(e.value) })">
+    <input type="button" value="$H()関数" onclick="alert($H($('name')).get('value'))">
+  </form>
+  
+  <form>
+    数字を入力してください。0から10の間であるかどうかをチェックします：
+    <input type="text" id="number"><br>
+    <input type="button" value="$H()関数" onclick="alert($R(0, 10).include($F('number')))">
+  </form>
+  
+  <form>
+    入力された値を空白で分割して表示します：
+    <input type="text" id="to_split"><br>
+    <input type="button" value="$w()関数" onclick="$w($F('to_split')).each(function(e){ alert(e) });">
+  </form>
+</body>
+</html>

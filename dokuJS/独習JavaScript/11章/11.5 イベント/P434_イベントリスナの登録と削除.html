@@ -1,0 +1,24 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>イベントリスナの登録と削除</title>
+  <script src="../prototype-1.6.0.2.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    // イベントリスナとして利用する関数
+    function pageLoaded() {
+      Event.observe('div', 'click', function(event){
+        alert(event.type);
+      });
+    }
+    
+    // イベントリスナを登録
+    Event.observe(window, 'load', pageLoaded);
+  </script>
+  
+</head>
+<body>
+
+<div id="div">ここをクリックしてください。</div>
+
+</body>
+</html>

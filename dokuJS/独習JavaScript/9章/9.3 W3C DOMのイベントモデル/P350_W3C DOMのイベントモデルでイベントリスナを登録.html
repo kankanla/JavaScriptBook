@@ -1,0 +1,26 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>W3C DOMのイベントモデルでイベントリスナを登録</title>
+</head>
+<body>
+<h1>W3C DOMのイベントモデルでイベントリスナを登録</h1>
+<p>
+  このサンプルはInternet Explorerでは動作しません。
+</p>
+
+<input type="button" id="button" value="W3C DOMのイベントモデル">
+
+<script type="text/javascript">
+// イベントリスナ
+function clicked(event){
+  alert('W3C DOMのイベントモデル');
+}
+
+// 要素を取得
+var element = document.getElementById('button');
+// イベントリスナを登録
+element.addEventListener('click', clicked, false);
+</script>
+</body>
+</html>

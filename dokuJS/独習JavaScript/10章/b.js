@@ -1,0 +1,1 @@
+﻿register({"key" : "b" , "value" : "b.txtの内容です。"});

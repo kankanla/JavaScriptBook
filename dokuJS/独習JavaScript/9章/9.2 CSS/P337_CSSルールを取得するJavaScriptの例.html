@@ -1,0 +1,39 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>CSSルールを取得するJavaScriptの例</title>
+  <style type="text/css">
+  h1 {
+    color: red;
+  }
+  
+  input {
+    border: 1px solid black;
+  }
+  </style>
+</head>
+<body>
+<h1>CSSルールを取得するJavaScriptの例</h1>
+
+<input type="button" value="CSSルールを表示" onclick="showCSSRules()">
+
+<script type="text/javascript">
+function showCSSRules(){
+  for(var i=0;i<document.styleSheets.length;i++){
+    var styleSheet = document.styleSheets[i];
+    if(styleSheet.rules){ // Internet Explorerの場合
+      for(var j=0;j<styleSheet.rules.length;j++){
+        var rule = styleSheet.rules[j];
+        alert(rule.style.cssText);
+      }
+    } else { // Firefoxの場合
+      for(var j=0;j<styleSheet.cssRules.length;j++){
+        var rule = styleSheet.cssRules[j];
+        alert(rule.style.cssText);
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>

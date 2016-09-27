@@ -1,0 +1,18 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>イベントハンドラ属性からの関数の呼び出し</title>
+  <script type="text/javascript">
+  function showDialog(){
+    alert(form.name.value + 'さん、こんにちは！');
+  }
+  </script>
+</head>
+<body>
+  <form name="form">
+    お名前をどうぞ：
+    <input type="text" name="name"/>
+    <input type="button" value="クリック" onclick="showDialog()"/>
+  </form>
+</body>
+</html>

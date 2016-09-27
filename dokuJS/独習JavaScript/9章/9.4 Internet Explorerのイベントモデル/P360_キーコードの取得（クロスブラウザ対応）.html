@@ -1,0 +1,45 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>キーコードの取得（クロスブラウザ対応）</title>
+  <script type="text/javascript">
+    function getKeyCode(event){
+      return event.keyCode || event.charCode;
+    }
+    
+    function addListener(element, type, listener) {
+      if(element.addEventListener) {
+        // W3C DOMのイベントモデルを利用可能な場合
+        element.addEventListener(type, listener, false);
+      } else if(element.attachEvent) {
+        // Internet Explorerの場合
+        element.attachEvent('on' + type, listener);
+      }
+    }    
+  </script>
+</head>
+<body>
+<h1>キーコードの取得（クロスブラウザ対応）</h1>
+<p>
+  テキストフィールドに文字を入力するとキーコードを表示します。
+  このサンプルはInternet ExplorerでもFirefoxでも動作します。
+</p>
+
+<input type="text" id="text" value="">
+<div>
+  キーコード：<span id="keyCode"></span>
+</div>
+
+<script type="text/javascript">
+// イベントリスナ
+function keyPressed(event){
+  document.getElementById('keyCode').innerHTML = getKeyCode(event);
+}
+
+// 要素を取得
+var element = document.getElementById('text');
+// Elementオブジェクトにリスナを登録
+addListener(element, 'keypress', keyPressed);
+</script>
+</body>
+</html>

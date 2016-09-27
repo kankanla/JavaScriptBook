@@ -1,0 +1,7 @@
+var check = 'aaaabbbbA025cccc';
+var reg = new RegExp('[0-9]{2}'); // ”’l2Œ…‚ğ’T‚·
+if (reg.test(check)) {
+  alert(check + '‚É‚Í”’l2Œ…‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·');
+} else {
+  alert(check + '‚É‚Í”’l2Œ…‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚¹‚ñ');
+}

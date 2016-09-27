@@ -1,0 +1,27 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>イベントのキャンセル</title>
+  <script src="../prototype-1.6.0.2.js" type="text/javascript"></script>
+</head>
+<body>
+<p>
+  パスワードが入力されていない場合はエラーメッセージを表示し、フォームの送信を行いません。
+</p>
+
+<form id="form">
+  パスワード:<input type="password" id="password" name="password">
+  <input type="submit" value="ログイン">
+</form>
+
+<script type="text/javascript">
+Event.observe('form', 'submit', function(event){
+  if($('password').value == ''){
+    alert('パスワードを入力してください。');
+    Event.stop(event);
+  }
+});
+</script>
+
+</body>
+</html>

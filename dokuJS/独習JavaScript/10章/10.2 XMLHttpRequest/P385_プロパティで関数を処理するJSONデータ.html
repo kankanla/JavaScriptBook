@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>P385_プロパティで関数を処理するJSONデータ</title>
+</head>
+<body>
+<script type="text/javascript">
+var request = new window.XMLHttpRequest(); // 最新のWebブラウザのみ対応
+request.onreadystatechange = function() {
+  if (request.readyState == 4 && request.status == 200) {
+    var msgInfos = eval(request.responseText);
+  }
+};
+request.open('GET', '/jsonData2.json', true);
+request.send(null);
+</script>
+</body>
+</html>

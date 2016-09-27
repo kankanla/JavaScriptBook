@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>イベントリスナの登録／削除</title>
+  <script type="text/javascript">
+    function addListener(element, type, listener) {
+      if(element.addEventListener) {
+        // W3C DOMのイベントモデルを利用可能な場合
+        element.addEventListener(type, listener, false);
+      } else if(element.attachEvent) {
+        // Internet Explorerの場合
+        element.attachEvent('on' + type, listener);
+      }
+    }
+    
+    function removeListener(element, type, listener){
+      if(element.removeEventListener) {
+        // W3C DOMのイベントモデルを利用可能な場合
+        element.removeEventListener(type, listener, false);
+      } else if(element.attachEvent) {
+        // Internet Explorerの場合
+        element.detachEvent('on' + type, listener);
+      }
+    }
+  </script>
+</head>
+<body>
+<h1>クロスブラウザ対応のイベント登録関数</h1>
+<p>
+  このサンプルはInternet ExplorerでもFirefoxでも動作します。
+</p>
+
+<input type="button" id="button" value="クリック">
+
+<script type="text/javascript">
+// イベントリスナ
+function clicked(event){
+  alert('クロスブラウザ対応のイベント登録関数の使用例です。');
+}
+
+// 要素を取得
+var element = document.getElementById('button');
+// Elementオブジェクトにリスナを登録
+addListener(element, 'click', clicked);
+</script>
+</body>
+</html>

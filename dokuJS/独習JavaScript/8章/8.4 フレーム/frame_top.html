@@ -1,0 +1,23 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript">
+  function helloBottomFrame(){
+    var bottomFrame = top.frames['bottom'];
+    bottomFrame.hello();
+  }
+  
+  function moveToGoogle(){
+    var bottomFrame = top.frames['bottom'];
+    bottomFrame.location.href = 'http://www.google.co.jp/';
+  }
+  </script>
+</head>
+<body>
+  右側上段のフレーム（top）
+  <form>
+    <input type="button" value="bottomフレームの関数を呼び出す" onclick="helloBottomFrame()"><br>
+    <input type="button" value="bottomフレームにGoogleを表示" onclick="moveToGoogle()">
+  </form>
+</body>
+</html>

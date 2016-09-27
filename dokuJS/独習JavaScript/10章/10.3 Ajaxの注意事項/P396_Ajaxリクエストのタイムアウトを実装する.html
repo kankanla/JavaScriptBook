@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>P396_Ajaxリクエストのタイムアウトを実装する</title>
+</head>
+<body>
+<script type="text/javascript">
+var request = new window.XMLHttpRequest(); // 最新のWebブラウザのみ対応
+var timer = setInterval('timeout()', 3000); // 3000ミリ秒をタイムアウトにする
+request.onreadystatechange = function() { // コールバック関数を登録
+  if (request.readyState == 4 && request.status == 200) {
+    clearInterval(timer); // 正常終了でもタイマーをクリア
+    alert(request.responseText);
+  }
+};
+request.open('GET', '/data.txt', true); // 非同期のGETリクエスト
+request.send(null);
+// タイムアウトの処理
+function timeout() {
+  clearInterval(timer);
+  request.abort();
+  alert('タイムアウト発生');
+}
+</script>
+</body>
+</html>

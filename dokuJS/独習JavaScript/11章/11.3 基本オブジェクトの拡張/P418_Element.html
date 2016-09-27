@@ -1,0 +1,75 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Element</title>
+  <script src="../prototype-1.6.0.2.js" type="text/javascript"></script>
+  <style type="text/css">
+  pre {
+    border: 1px solid silver;
+    padding: 4px;
+  }
+  
+  .description {
+    color: red;
+  }
+  
+  .highlight {
+    font-style: italic;
+    background-color: yellow;
+  }
+  </style>
+</head>
+<body>
+<h1>Element</h1>
+
+<h2>Elementオブジェクトの生成</h2>
+
+<pre>
+var a = new Element('a', 
+  { 'class': 'link', href: 'http://www.google.co.jp/'
+}).update("Google");
+</pre>
+
+<div id="testCreateElementResult"></div>
+<input type="button" value="Googleへのリンクを追加" onclick="testCreateElement()">
+
+<script type="text/javascript">
+function testCreateElement(){
+  var a = new Element('a', 
+    { 'class': 'link', href: 'http://www.google.co.jp/'
+  }).update("Google");
+  
+  $('testCreateElementResult').appendChild(a);
+}
+</script>
+
+<h2>CSSのスタイルクラスの操作</h2>
+
+<pre>
+// クラス名を追加
+$('contents').addClassName('class3');
+
+// クラス名を削除
+$('contents').removeClassName('class1');
+</pre>
+
+<p id="description" class="description">
+  Prototype.js にはクラス名の追加や削除のための便利なメソッドが用意されており、
+  直観的に操作ができます。
+</p>
+
+<input type="button" value="classを追加" onclick="testAddClass()">
+<input type="button" value="classを削除" onclick="testRemoveClass()">
+
+<script type="text/javascript">
+function testAddClass(){
+  $('description').addClassName('highlight');
+}
+
+function testRemoveClass(){
+  $('description').removeClassName('highlight');
+}
+</script>
+
+</body>
+</html>

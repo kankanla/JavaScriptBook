@@ -1,0 +1,17 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>ノードを削除する</title>
+</head>
+<body>
+<p onclick="removeElement(this)">
+クリックすると削除されます
+</p>
+
+<script type="text/javascript">
+function removeElement(element){
+  element.parentNode.removeChild(element);
+}
+</script>
+</body>
+</html>

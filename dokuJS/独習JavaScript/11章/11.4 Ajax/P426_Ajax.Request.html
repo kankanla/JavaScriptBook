@@ -1,0 +1,30 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Ajax.RequestでXMLを取得</title>
+  <script src="../prototype-1.6.0.2.js" type="text/javascript"></script>
+</head>
+<body>
+
+<!--取得結果を表示する要素-->
+<ul id="result"></ul>
+
+<script type="text/javascript">
+  // Ajax.Requestオブジェクトを生成
+  new Ajax.Request('books.xml', {
+    method: 'get',
+    onSuccess: showResult
+  });
+  
+  // Ajax.Requestの結果を受け取る関数
+  function showResult(response){
+    var books = response.responseXML.getElementsByTagName('book');
+    for(var i=0;i<books.length;i++){
+      $('result').innerHTML +=
+        '<li>' + books[i].getAttribute('title').escapeHTML() + '</li>';
+    }
+  }
+</script>
+
+</body>
+</html>
